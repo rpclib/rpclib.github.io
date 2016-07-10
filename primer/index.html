@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>Primer - rpclib</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles/solarized-light.css">
+
+
+    <link href="../extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">rpclib</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../gettingstarted/">Getting started</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Primer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cookbook/">Cookbook</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../glossary/">Glossary</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../compiling/">Compiling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../design/">Internal design</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../spec/">Specification</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../reference/">Reference</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../gettingstarted/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../cookbook/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#primer">Primer</a></li>
+        
+            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
+            
+        
+            <li class="second-level"><a href="#introduction">Introduction</a></li>
+            
+        
+    
+        <li class="first-level "><a href="#writing-servers">Writing servers</a></li>
+        
+            <li class="second-level"><a href="#calculator-the-hello-world-of-rpc-libraries">Calculator, the "Hello World" of RPC libraries.</a></li>
+            
+        
+            <li class="second-level"><a href="#responding-with-errors">Responding with errors</a></li>
+            
+                <li class="third-level"><a href="#what-about-my-exceptions">What about my exceptions?</a></li>
+            
+        
+            <li class="second-level"><a href="#a-more-complicated-server-parallel-mandelbrot-generation">A more complicated server - Parallel mandelbrot-generation</a></li>
+            
+                <li class="third-level"><a href="#using-custom-types-as-parameters">Using custom types as parameters</a></li>
+            
+        
+            <li class="second-level"><a href="#running-the-server-asynchrously-and-utilizing-workers">Running the server asynchrously and utilizing workers</a></li>
+            
+        
+    
+        <li class="first-level "><a href="#writing-clients">Writing clients</a></li>
+        
+            <li class="second-level"><a href="#the-calculator-client">The Calculator client</a></li>
+            
+        
+            <li class="second-level"><a href="#error-handling">Error handling</a></li>
+            
+                <li class="third-level"><a href="#the-anatomy-of-a-call">The anatomy of a call</a></li>
+            
+        
+            <li class="second-level"><a href="#the-mandelbrot-client">The Mandelbrot client</a></li>
+            
+                <li class="third-level"><a href="#async-servers-vs-async-clients-vs-parallel-execution">Async servers vs. async clients vs. parallel execution</a></li>
+            
+        
+    
+        <li class="first-level "><a href="#where-to-go-from-here">Where to go from here</a></li>
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="primer">Primer</h1>
+<p>Welcome to the Primer! This document is a tutorial introduction to <code>rpclib</code> for absolute beginners. If you are new to the library and prefer detailed instructions and explanation, you are in the right place. If short examples with less explanation work better for you, you might want to check out the <a href="../cookbook/">Cookbook</a>!</p>
+<p>The tutorial is sturctured as follows: in the first part, writing servers is explained with one simple and one more advanced example.  In the second part, the corresponding clients are implemented.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Knowledge-wise, this tutorial assumes that you have an intermediate grasp of C++ and that you have an idea of what <a href="https://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a> (Remote Procedure Call) is.</p>
+<p>For your build environment, make sure that you are able to compile and link a program with
+<code>rpclib</code>. The <a href="../gettingstarted/">Getting Started</a> page can help you with that.</p>
+<h2 id="introduction">Introduction</h2>
+<p><code>rpclib</code> is a RPC library that provides both a <em>client</em> and a <em>server</em> implementation. The <em>server</em> allows you to expose functions of your program to be called remotely, while the <em>client</em> allows you to call functions of servers. You can use the <code>rpclib</code> client and server in tandem (even in the same program, if you want to), but it's not a requirement.</p>
+<p>As other RPC libraries, <code>rpclib</code> is a good candidate for inter-process communication. Also, there exist many implementations of the protocol in a large amount of languages, which makes it a possible inter-language communication bridge.</p>
+<p>msgpack-RPC is the protocol that <code>rpclib</code> uses for dispatching and encoding calls to functions. The protocol is based on <a href="http://msgpack.org">msgpack</a>, a fast and compact format. For details on how exactly it is structured, see the <a href="../spec/">Specification</a> chapter.</p>
+<h1 id="writing-servers">Writing servers</h1>
+<p>In the first part of this tutorial, we will learn about writing server applications. Two example
+applications will be implemented step-by-step.</p>
+<h2 id="calculator-the-hello-world-of-rpc-libraries">Calculator, the "Hello World" of RPC libraries.</h2>
+<p>Our first server application will expose four functions: <code>add</code>, <code>subtract</code>, <code>multiply</code>, <code>divide</code>. For the sake of this example, the functions are implemented as various callable entities.</p>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+
+double divide(double a, double b) { return a / b; }
+
+struct subtractor {
+    double operator()(double a, double b) { return a - b; }
+};
+
+struct multiplier {
+    double multiply(double a, double b) { return a * b; }
+};
+
+int main() {
+    subtractor s;
+    multiplier m;
+    auto add = [](double a, double b) { return a + b; };
+
+    // ...
+
+    return 0;
+}
+
+</code></pre>
+
+<p>Now, let's create the server:</p>
+<pre><code class="cpp">rpc::server srv(8080);
+</code></pre>
+
+<p>This server will listen on port 8080 (but not right away after construction - we need to <code>run</code> it). Next, we <em>bind</em> the functors to names in order to expose them:</p>
+<pre><code class="cpp">srv.bind(&quot;add&quot;, [](double a, double b) { return a + b; });
+srv.bind(&quot;sub&quot;, s);
+srv.bind(&quot;div&quot;, &amp;divide);
+srv.bind(&quot;mul&quot;, [&amp;m](double a, double b) { return m.multiply(a, b); });
+</code></pre>
+
+<p>These are the names that the client can use to call our functions. There is nothing stopping you from binding <code>divide</code> to the name <code>"add"</code>, but it's a good practice to use names that reflect the source names. It is also possible to bind the same function to multiple names.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Under the hood, each <code>bind</code> statement generates a compile-time a wrapper function that takes a <code>msgpack</code> object, then decodes it into the real parameters of the bound function (if any) and calls the bound function. If the function has a return value the wrapper is generated so that it encodes the result as a <code>msgpack</code> object which the server can send to the client in a response. More information on this mechanism can be found in the <a href="../design/">Design</a> chapter.</p>
+</div>
+<p>After we exposed the function, we need to <code>run</code> the server:</p>
+<pre><code class="cpp">srv.run();
+</code></pre>
+
+<p><code>run</code> is a blocking function, but it also has a non-blocking pair called <code>async_run</code>. When <code>run</code> is called, the server starts listening on the port we assigned to it in its constructor, and its internal event loop will start processing the incoming requests.</p>
+<p>This is now a functioning (although, in some ways, incomplete) server. The complete listing so far:</p>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+
+double divide(double a, double b) { return a / b; }
+
+struct subtractor {
+    double operator()(double a, double b) { return a - b; }
+};
+
+struct multiplier {
+    double multiply(double a, double b) { return a * b; }
+};
+
+int main() {
+    rpc::server srv(8080);
+
+    subtractor s;
+    multiplier m;
+
+    srv.bind(&quot;add&quot;, [](double a, double b) { return a + b; });
+    srv.bind(&quot;sub&quot;, s);
+    srv.bind(&quot;div&quot;, &amp;divide);
+    srv.bind(&quot;mul&quot;, [&amp;m](double a, double b) { return m.multiply(a, b); });
+
+    srv.run();
+
+    return 0;
+}
+</code></pre>
+
+<p>If you want, you can fire up a <a href="https://github.com/msgpack-rpc/msgpack-rpc-python">quick python script</a> to test it (don't worry, we'll write a client with <code>rpclib</code>, too).</p>
+<h2 id="responding-with-errors">Responding with errors</h2>
+<p>There is, however, an issue with this server. Did you spot it? Any client can easily make it crash just by calling <code>div</code> with a 0 divider (causing division by zero). What can we do about this? Well of course, we can just check the divider and <em>not</em> perform the division. We still need to return <em>something</em> though:</p>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+
+double divide(double a, double b) {
+    if (b == 0) {
+        return 0.0; // &lt;- ugh, that's not very good :S
+    }
+    return a / b;
+}
+</code></pre>
+
+<p>This is enough to avoid the crash, but it's fundamentally broken: division by zero does not yield zero, after all. The client gets an arbitrary result (oblivious to the fact that there was an error), which is most likely not what they want.</p>
+<p>Luckily, the msgpack-rpc protocol supports error signaling. We need to modify our <code>divide</code> function a little bit to utilize this functionality:</p>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+#include &quot;rpc/this_handler.h&quot;
+
+double divide(double a, double b) {
+    if (b == 0) {
+        rpc::this_handler().respond_error(&quot;Division by zero&quot;);
+    }
+    return a / b;
+}
+</code></pre>
+
+<p>This is better. The error is <a href="http://c2.com/cgi/wiki?StringlyTyped">stringly-typed</a>, but it's
+better than an arbitrary result. To amend this, we can return practically any object, such as
+a tuple that contains an error code besides the message:</p>
+<pre><code class="cpp">double divide(double a, double b) {
+    if (b == 0.0) {
+        rpc::this_handler().respond_error(
+                std::make_tuple(1, &quot;Division by zero&quot;));
+    }
+    return a / b;
+}
+</code></pre>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>msgpack-rpc</code> does not define the structure of error objects, so making up something like this is
+perfectly fine (in fact, I'd encourage you to do this with well-defined error codes). Consider
+it part of your server interface and document accordingly.</p>
+</div>
+<p>You might be puzzled about why we are not returning after setting the error. The reason for this is that <code>respond_error</code> throws an internal exception that is handled inside the library. (<em>This can be considered an implementation detail, but it's good to know what happens here (and it's unlikely to change</em>).</p>
+<p>Now, with the added error handling, our server is bullet-proof. Or is it?</p>
+<h3 id="what-about-my-exceptions">What about <em>my</em> exceptions?</h3>
+<p>Our little calculator server is pretty stable at this point, but real-world applications often have to deal with exceptions. In general, exceptions should be handled at the library users' discretion (that is, caught on the handler level). So by default, <code>rpclib</code> doesn't do anything with them. If an exception leaves the handler, it is an unhandled exception and your server will crash. Yet, there are cases when you can't or don't want to handle exceptions in the handler. To facilitate this, <code>rpclib</code> provides a way to automatically turn exceptions into RPC errors:</p>
+<pre><code class="cpp">srv.suppress_exceptions(true);
+</code></pre>
+
+<p>With this, you can call functions that throw or throw exceptions:</p>
+<pre><code class="cpp">double divide(double a, double b) {
+    if (b == 0) {
+        rpc::this_handler().respond_error(
+                std::make_tuple(1, &quot;Division by zero&quot;));
+    }
+    else if (b == 1) {
+        throw std::runtime_error(&quot;Come on!&quot;);
+    }
+    throw std::logic_error(&quot;What am I doing here?&quot;);
+}
+</code></pre>
+
+<p>So yes, this means that if you set <code>suppress_excpetions</code> to <code>true</code>, you might as well signal errors from handlers by throwing exceptions. Be advised that <code>respond_error</code> is still valid and remains the preferred way to do so (especially that it's the only way to respond with structured error objects). </p>
+<p>What exactly happens to the suppressed exception? <code>rpclib</code> will try to catch <code>std::exceptions</code> and use their <code>what()</code> members to get a string representation which it sets as an error.</p>
+<p>What if you throw something that is not a <code>std::exception</code>-descendant? First of all, shame on you. Second, <code>rpclib</code> will send an error message letting your clients know that you threw something that is not a <code>std::exception</code> (<em>shaming you in front of your clients</em>). Don't do this, really.</p>
+<h2 id="a-more-complicated-server-parallel-mandelbrot-generation">A more complicated server - Parallel mandelbrot-generation</h2>
+<p>The following example demonstrates parallel processing and binding custom data types. The server itself will have two functions: one for getting the current date and time, and one for getting a rendering of the mandelbrot set. The two functions can be called asynchronously by a client.</p>
+<h3 id="using-custom-types-as-parameters">Using custom types as parameters</h3>
+<p>Anything that msgpack can process can be used as a parameter or return value for a bound function. In order to teach msgpack about your custom types, you need to use the <code>MSGPACK_DEFINE_ARRAY</code> or <code>MSGPACK_DEFINE_MAP</code> macros.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The difference between the two macros is that the array only contains the data values after each other, while the map also contains the names of the values. The latter gives more flexibility, the former is more compact.</p>
+</div>
+<p>In our mandelbrot example, we will want to send pixel data to the clients, so let's define a struct:</p>
+<pre><code class="cpp">struct pixel {
+    unsigned char r, g, b;
+    MSGPACK_DEFINE_ARRAY(r, g, b)
+};
+
+using pixel_data = std::vector&lt;pixel&gt;;
+</code></pre>
+
+<p>We will share this definition between the client and server, so for our purposes it's best to put it in a common header.</p>
+<p>Like in the first example, we create the server and bind the functions we expose. This time we are using lambdas as the bound functions.</p>
+<pre><code class="cpp">rpc::server srv(8080);
+
+srv.bind(&quot;get_time&quot;, []() {
+    time_t rawtime;
+    struct tm *timeinfo;
+    time (&amp;rawtime);
+    timeinfo = localtime(&amp;rawtime);
+    return asctime(timeinfo);
+});
+
+srv.bind(&quot;get_mandelbrot&quot;, [&amp;](int width, int height) {
+    pixel_data data;
+    for (int x = 0; x &lt; width; x++) {
+        for (int y = 0; y &lt; height; y++) {
+            // ...
+        }
+    }
+
+    return data;
+});
+</code></pre>
+
+<p>The exact contents of these functions is not a concern for our purposes, just note that the <code>get_time</code> returns a value very quickly, while <code>get_mandelbrot</code> computes a large array of numbers for several seconds.</p>
+<h2 id="running-the-server-asynchrously-and-utilizing-workers">Running the server asynchrously and utilizing workers</h2>
+<p>In the first example, we called the blocking <code>run</code> function of the server to start it. Here, we are going to use <code>async_run</code>. There are two important differences.</p>
+<p>. <code>run</code> blocks, <code>async_run</code> returns after starting the server.
+. <code>async_run</code> supports spawning worker threads for executing the bound functions.</p>
+<p>In this example, we call it like this:</p>
+<pre><code class="cpp">srv.async_run(2);
+</code></pre>
+
+<p>This will spawn two worker threads in the server (so now there are three in the program, because the main thread already exists). The threads will wait until there is work to do.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>"Work" is not only executing handlers. Processing network I/O is also part of the work that threads can take. You don't need an extra thread per connection though, because processing the I/O is typically not very processor-intensive.</p>
+</div>
+<p>Now this server can take a call to <code>get_mandelbrot</code>, start executing it and in the meantime it can finish multiple <code>get_time</code> calls. The handlers are only executed by these worker threads, the main thread is free to continue.</p>
+<h1 id="writing-clients">Writing clients</h1>
+<p>Creating msgpack-rpc clients with <code>rpclib</code> happens very similarly to servers. Mirroring the server examples above, we will implement their corresponding clients.</p>
+<h2 id="the-calculator-client">The Calculator client</h2>
+<p>The <code>client</code> object is instantiated like this:</p>
+<pre><code class="cpp">rpc::client client(&quot;127.0.0.1&quot;, 8080);
+</code></pre>
+
+<p>The important difference, compared to a server, is that we also need to specify the host to connect to.</p>
+<p>Another difference is that the client tries to connect to the server right away during construction (but the construction of the client is not a blocking call). The client object can be used right away:</p>
+<pre><code class="cpp">double five = c.call(&quot;add&quot;, 2, 3).as&lt;double&gt;();
+</code></pre>
+
+<p>Let's try and call all of the exposed functions. With a little bit of logging to the standard
+output, the complete listing looks like this so far:</p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+
+#include &quot;rpc/client.h&quot;
+
+int main() {
+    rpc::client c(&quot;localhost&quot;, 8080);
+
+    std::cout &lt;&lt; &quot;add(2, 3) = &quot;;
+    double five = c.call(&quot;add&quot;, 2, 3).as&lt;double&gt;();
+    std::cout &lt;&lt; five &lt;&lt; std::endl;
+
+    std::cout &lt;&lt; &quot;sub(3, 2) = &quot;;
+    double one = c.call(&quot;sub&quot;, 3, 2).as&lt;double&gt;();
+    std::cout &lt;&lt; one &lt;&lt; std::endl;
+
+    std::cout &lt;&lt; &quot;mul(5, 0) = &quot;;
+    double zero = c.call(&quot;mul&quot;, five, 0).as&lt;double&gt;();
+    std::cout &lt;&lt; zero &lt;&lt; std::endl;
+
+    std::cout &lt;&lt; &quot;div(3, 0) = &quot;;
+    double hmm = c.call(&quot;div&quot;, 3, 0).as&lt;double&gt;();
+    std::cout &lt;&lt; hmm &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
+
+<h2 id="error-handling">Error handling</h2>
+<p>Any request that a client makes might potentially receive an error response. In the calculator server, we decided to respond with a <code>tuple</code> containing an error code and a message. <code>rpclib</code> allows you to handle these error objects by catching <code>rpc::rpc_error</code> exceptions. To handle the errors the server throws, we would wrap the calls like this:</p>
+<pre><code class="cpp">try {
+    std::cout &lt;&lt; &quot;add(2, 3) = &quot;;
+    double five = c.call(&quot;add&quot;, 2, 3).as&lt;double&gt;();
+    std::cout &lt;&lt; five &lt;&lt; std::endl;
+
+    std::cout &lt;&lt; &quot;sub(3, 2) = &quot;;
+    double one = c.call(&quot;sub&quot;, 3, 2).as&lt;double&gt;();
+    std::cout &lt;&lt; one &lt;&lt; std::endl;
+
+    std::cout &lt;&lt; &quot;mul(5, 0) = &quot;;
+    double zero = c.call(&quot;mul&quot;, five, 0).as&lt;double&gt;();
+    std::cout &lt;&lt; zero &lt;&lt; std::endl;
+
+    std::cout &lt;&lt; &quot;div(3, 0) = &quot;;
+    double hmm = c.call(&quot;div&quot;, 3, 0).as&lt;double&gt;();
+    std::cout &lt;&lt; hmm &lt;&lt; std::endl;
+} catch (rpc::rpc_error &amp;e) {
+    std::cout &lt;&lt; std::endl &lt;&lt; e.what() &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;in function &quot; &lt;&lt; e.get_function_name() &lt;&lt; &quot;: &quot;;
+
+    using err_t = std::tuple&lt;int, std::string&gt;;
+    auto err = e.get_error().as&lt;err_t&gt;();
+    std::cout &lt;&lt; &quot;[error &quot; &lt;&lt; std::get&lt;0&gt;(err) &lt;&lt; &quot;]: &quot; &lt;&lt; std::get&lt;1&gt;(err)
+              &lt;&lt; std::endl;
+    return 1;
+}
+</code></pre>
+
+<p>As you would expect, the output looks like this:</p>
+<pre><code>add(2, 3) = 5
+sub(3, 2) = 1
+mul(5, 0) = 0
+div(3, 0) = 
+rpclib: a handler responded with an error
+in function 'div': [error 1]: Division by zero
+</code></pre>
+
+<p>That's pretty much all we need for the calculator client.</p>
+<h3 id="the-anatomy-of-a-call">The anatomy of a <code>call</code></h3>
+<p><code>call</code> does a couple of things:</p>
+<ul>
+<li>If the client is not yet connected to the server, it waits until it connects (this might block until the connection is established)</li>
+<li>Sends a "call" message to the server</li>
+<li>Waits for the response and returns it as a msgpack object - this blocks until the response is read.</li>
+</ul>
+<p>In the example above, you can see how getting a strongly typed value from the result is done: using the <code>as</code> member template. This takes the msgpack object and tries to deserialize it into the type given. If that fails, you will get a <code>type_error</code>.</p>
+<p><code>call</code> takes at least one parameter (the name of the function to call), and an arbitrary number and type of other paramters that are meant to be passed to the function being called. Each parameter has to be serializable by msgpack.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See <a href="https://github.com/msgpack/msgpack-c/wiki/v1_1_cpp_adaptor">msgpack adaptors</a> from the msgpack documentation for more information on serializing and deserializing custom types.</p>
+</div>
+<h2 id="the-mandelbrot-client">The Mandelbrot client</h2>
+<p>The client for the mandelbrot server above is interesting because we will take advantage of the multiple workers in the server. In order to do that, instead of <code>call</code> we are going to use <code>async_call</code>.</p>
+<p><code>async_call</code> is very similar to <code>call</code>, but it does not wait for the response. Instead, it will return a <a href="http://en.cppreference.com/w/cpp/thread/future">future</a>, allowing us to continue our program flow and retrieve the result later (which the server can compute in the meantime).</p>
+<pre><code class="cpp">rpc::client c(&quot;127.0.0.1&quot;, 8080);
+
+// this returns immediately:
+auto result_obj = c.async_call(&quot;get_mandelbrot&quot;, width, height);
+
+// we can now call another function and wait for its result:
+auto current_time = c.call(&quot;get_time&quot;).as&lt;std::string&gt;();
+
+// ... after some time, retrieve the result (optionally wait for it)
+auto result = result_obj.get().as&lt;pixel_data&gt;();
+</code></pre>
+
+<p>The call to <code>get_time</code> can be performed with <code>call</code> (no need for <code>async_call</code>), because the other call is running on a different worker.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>What would happen if our server only had one worker thread?</strong> We would get the same output, but with more delay: The server would only start processing the <code>get_time</code> call after it finished executing and writing the response of <code>get_mandelbrot</code>. Essentially, a single-threaded server works in a "queue" fashion. The same thing would happen if the server was simple under heavy load.</p>
+</div>
+<h3 id="async-servers-vs-async-clients-vs-parallel-execution">Async servers vs. async clients vs. parallel execution</h3>
+<p>Does the asynchonous nature of <code>async_call</code> depend on the server or the load of the server then? No, it does not. It's important to realize that <code>async_call</code> is still asynchronous even if the server does not execute requests in parallel. If there are multiple clients connected to the server, their requests are processed in a more queued manner (still two requests processed at the same time).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>rpclib</code> uses a simple convention: <code>foo</code> is a synchronous call, <code>async_foo</code> is asynchronous. This conventions was adapted from Asio. The latter only means that the call returns "immediately" (or rather, very quickly and without finishing all of the work).</p>
+</div>
+<p>The two worker threads in the mandelbrot server can serve two clients in parallel. Or two calls of the same client, which happens in the example. In order to be able to send two requests in an interleaved fashion, we first use <code>async_call</code> which allows the control flow of the client to continue.</p>
+<h1 id="where-to-go-from-here">Where to go from here</h1>
+<p>The <a href="../cookbook/">Cookbook</a> features most (if not all) intended use cases of rpclib - it's a great
+place to continue. </p>
+<p>If you are interested in the internal design of <code>rpclib</code>, take a look at the <a href="../design/">Design</a>
+page.</p></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> and <a href="http://www.stack.nl/~dimitri/doxygen/index.html">Doxygen</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

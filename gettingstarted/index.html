@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>Getting started - rpclib</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles/solarized-light.css">
+
+
+    <link href="../extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">rpclib</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Getting started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../primer/">Primer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cookbook/">Cookbook</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../glossary/">Glossary</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../compiling/">Compiling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../design/">Internal design</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../spec/">Specification</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../reference/">Reference</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="..">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../primer/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#getting-started">Getting started</a></li>
+        
+            <li class="second-level"><a href="#what-you-need">What you need</a></li>
+            
+                <li class="third-level"><a href="#compiler">Compiler</a></li>
+            
+                <li class="third-level"><a href="#tools">Tools</a></li>
+            
+                <li class="third-level"><a href="#the-library">The library</a></li>
+            
+        
+            <li class="second-level"><a href="#setting-up-your-environment">Setting up your environment</a></li>
+            
+        
+            <li class="second-level"><a href="#where-to-go-from-here">Where to go from here</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="getting-started">Getting started</h1>
+<p>This document details the steps of getting everything in place to be able to use <code>rpclib</code>.</p>
+<h2 id="what-you-need">What you need</h2>
+<h3 id="compiler">Compiler</h3>
+<p><code>rpclib</code> uses some C++14 features, and as such, requires a recent compiler. The following compilers are tried and tested with <code>rpclib</code> at the moment:</p>
+<ul>
+<li>g++ 5.0</li>
+<li>clang++ 3.7</li>
+<li>MSVC 2015 Update 2</li>
+</ul>
+<p>Newer versions of these compilers are expected to work.</p>
+<h3 id="tools">Tools</h3>
+<p>In addition to a capable compiler, you will need:</p>
+<ul>
+<li><a href="https://cmake.org">CMake 3.x</a></li>
+<li>And either<ul>
+<li>GNU make, or</li>
+<li>Ninja, or</li>
+<li>MSBuild/Visual Studio (on Microsoft Windows).</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-library">The library</h3>
+<p>There are various release packages available for the most popular systems and ideally you should install one of those. If there is no suitable package for your system or you simply prefer to build from source, take a look at the <a href="../compiling/">Compiling</a> chapter.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>rpclib</code> uses CMake and has a very conventional build process. If you know how to build a CMake-based library, you know how to build <code>rpclib</code>.</p>
+</div>
+<h4 id="dependencies">Dependencies</h4>
+<p><code>rpclib</code> has no external library dependencies, i.e. you don't need to install any extra libraries to use it. The library does use third-party code, but it is hidden both during compilation and linking (i.e. it means you don't need to worry about linking against those same libraries).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See the <a href="../design/">Design</a> documentation for details on how <code>rpclib</code> handles its dependencies.</p>
+</div>
+<h2 id="setting-up-your-environment">Setting up your environment</h2>
+<p>In order to use <code>rpclib</code> in your projects, you will need to have it built and stored somewhere on your system. Place the <code>rpclib</code> headers into your include path, and link the static library with your executable. The exact process of that depends on your compiler and/or IDE.</p>
+<h2 id="where-to-go-from-here">Where to go from here</h2>
+<p>Now that you have an environment where you can compile and link programs with <code>rpclib</code>, either
+check out the <a href="../primer/">Primer</a> for a step-by-step tutorial or the <a href="../cookbook/">Cookbook</a>, if you prefer short examples with minimal instructions.</p></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> and <a href="http://www.stack.nl/~dimitri/doxygen/index.html">Doxygen</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

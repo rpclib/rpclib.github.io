@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>Reference - rpclib</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles/solarized-light.css">
+
+
+    <link href="../extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">rpclib</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../gettingstarted/">Getting started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../primer/">Primer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cookbook/">Cookbook</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../glossary/">Glossary</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../compiling/">Compiling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../design/">Internal design</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../spec/">Specification</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Reference</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../spec/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#reference">Reference</a></li>
+        
+            <li class="second-level"><a href="#rpcclient">rpc::client</a></li>
+            
+                <li class="third-level"><a href="#description">Description</a></li>
+            
+                <li class="third-level"><a href="#public-functions">Public functions</a></li>
+            
+        
+            <li class="second-level"><a href="#rpcrpc_error">rpc::rpc_error</a></li>
+            
+                <li class="third-level"><a href="#description_1">Description</a></li>
+            
+                <li class="third-level"><a href="#public-functions_1">Public functions</a></li>
+            
+        
+            <li class="second-level"><a href="#rpcserver">rpc::server</a></li>
+            
+                <li class="third-level"><a href="#description_2">Description</a></li>
+            
+                <li class="third-level"><a href="#public-functions_2">Public functions</a></li>
+            
+        
+            <li class="second-level"><a href="#rpcthis_handler_t">rpc::this_handler_t</a></li>
+            
+                <li class="third-level"><a href="#description_3">Description</a></li>
+            
+                <li class="third-level"><a href="#public-functions_3">Public functions</a></li>
+            
+        
+            <li class="second-level"><a href="#rpcthis_server_t">rpc::this_server_t</a></li>
+            
+                <li class="third-level"><a href="#description_4">Description</a></li>
+            
+                <li class="third-level"><a href="#public-functions_4">Public functions</a></li>
+            
+        
+            <li class="second-level"><a href="#rpcthis_session_t">rpc::this_session_t</a></li>
+            
+                <li class="third-level"><a href="#description_5">Description</a></li>
+            
+                <li class="third-level"><a href="#public-functions_5">Public functions</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<style>
+    .table td {
+        text-align: left;
+    }
+
+    .table td:first-child {
+        text-align: right;
+        width: 230px;
+    }​
+</style>
+
+<h1 id="reference">Reference</h1>
+<p>This document is a detailed and (hopefully) complete reference of the public interface of <code>rpclib</code>.
+For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you can find many examples in the <a href="../cookbook/">Cookbook</a>.</p>
+<h2 id="rpcclient">rpc::client</h2>
+<pre><code class="cpp">#include &quot;rpc/client.h&quot;
+</code></pre>
+
+<h3 id="description">Description</h3>
+<p>Implements a client that connects to a msgpack-rpc server and is able to call functions synchronously or asynchronously. This is the main interfacing point for implementing client applications. </p>
+<p>Use this class to connect to msgpack-rpc servers and call their exposed functions. This class supports calling functions synchronously and asynchronously. When the client object is created, it initiates connecting to the given server asynchronically and disconnects when it is destroyed. </p>
+<h3 id="public-functions">Public functions</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><a href="#classrpc_1_1client_1aafbcbb90607bb189bf75a2020ee14eb8">client</a>(std::string const &amp;addr, uint16_t port)</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#classrpc_1_1client_1a87e0788aaa7a95dfc0e1b9c15dfe4163">~client</a>()</td>
+</tr>
+<tr>
+<td>msgpack::object_handle</td>
+<td><a href="#classrpc_1_1client_1a97f1406c306d8d6abff5f5a2e455ab72">call</a>(std::string const &amp;func_name, Args...args)</td>
+</tr>
+<tr>
+<td>std::future&lt; msgpack::object_handle &gt;</td>
+<td><a href="#classrpc_1_1client_1a786fcf533f716b1f75deed60452bb75c">async_call</a>(std::string const &amp;func_name, Args...args)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1client_1a668d7e045da563fe4855df9c6b7a0737">send</a>(std::string const &amp;func_name, Args...args)</td>
+</tr>
+<tr>
+<td>connection_state</td>
+<td><a href="#classrpc_1_1client_1a109a04851e70742f53549f4039de21a7">get_connection_state</a>() const</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1client_1ac37437bc05b70588c079079b957eb15f">wait_all_responses</a>()</td>
+</tr>
+</tbody>
+</table>
+<h4 id="classrpc_1_1client_1aafbcbb90607bb189bf75a2020ee14eb8" class="doxy">rpc::client::client</h4>
+
+<pre><code class="cpp"> rpc::client::client(std::string const &amp;addr, uint16_t port);
+</code></pre>
+
+<p>Constructs a client. </p>
+<h5 id="parameters">Parameters</h5>
+<p><code>addr</code> The address of the server to connect to. This might be an IP address or a host name, too. </p>
+<p><code>port</code> The port on the server to connect to. </p>
+<h5 id="details">Details</h5>
+<p>When a client is constructed, it initiates a connection asynchronically. This means that it will not block while the connection is established. However, when the first call is performed, it <em>might</em> block if the connection was not already established.</p>
+<h4 id="classrpc_1_1client_1a87e0788aaa7a95dfc0e1b9c15dfe4163" class="doxy">rpc::client::~client</h4>
+
+<pre><code class="cpp"> rpc::client::~client();
+</code></pre>
+
+<p>Destructor. </p>
+<h5 id="details_1">Details</h5>
+<p>During destruction, the connection to the server is gracefully closed. This means that any outstanding reads and writes are completed first. </p>
+<h4 id="classrpc_1_1client_1a97f1406c306d8d6abff5f5a2e455ab72" class="doxy">rpc::client::call</h4>
+
+<pre><code class="cpp">msgpack::object_handle rpc::client::call(std::string const &amp;func_name, Args...args);
+</code></pre>
+
+<p>Calls a function with the given name and arguments (if any). </p>
+<h5 id="template-parameters">Template parameters</h5>
+<p><code>Args</code> The types of the arguments. Each type in this parameter pack have to be serializable by msgpack.</p>
+<h5 id="parameters_1">Parameters</h5>
+<p><code>func_name</code> The name of the function to call on the server. </p>
+<p><code>args</code> A variable number of arguments to pass to the called function.</p>
+<h5 id="return-value">Return value</h5>
+<p>A msgpack::object containing the result of the function (if any). To obtain a typed value, use the msgpack API.</p>
+<h4 id="classrpc_1_1client_1a786fcf533f716b1f75deed60452bb75c" class="doxy">rpc::client::async_call</h4>
+
+<pre><code class="cpp">std::future&lt; msgpack::object_handle &gt; rpc::client::async_call(std::string const &amp;func_name, Args...args);
+</code></pre>
+
+<p>Calls a function asynchronously with the given name and arguments. </p>
+<h5 id="template-parameters_1">Template parameters</h5>
+<p><code>Args</code> The types of the arguments.</p>
+<h5 id="parameters_2">Parameters</h5>
+<p><code>func_name</code> The name of the function to call. </p>
+<p><code>args</code> The arguments to pass to the function.</p>
+<h5 id="details_2">Details</h5>
+<p>A call is performed asynchronously in the context of the client, i.e. this is not to be confused with parallel execution on the server. This function differs from <code>call</code> in that it does not wait for the result of the function. Instead, it returns a std::future that can be used to retrieve the result later.</p>
+<h5 id="return-value_1">Return value</h5>
+<p>A std::future, possibly holding a future result (which is a msgpack::object). </p>
+<h4 id="classrpc_1_1client_1a668d7e045da563fe4855df9c6b7a0737" class="doxy">rpc::client::send</h4>
+
+<pre><code class="cpp">void rpc::client::send(std::string const &amp;func_name, Args...args);
+</code></pre>
+
+<p>Sends a notification with the given name and arguments (if any). </p>
+<h5 id="template-parameters_2">Template parameters</h5>
+<p><code>Args</code> The types of the arguments.</p>
+<h5 id="parameters_3">Parameters</h5>
+<p><code>func_name</code> The name of the notification to call. </p>
+<p><code>args</code> The arguments to pass to the function. </p>
+<h5 id="details_3">Details</h5>
+<p>Notifications are a special kind of calls. They can be used to notify the server while not waiting for a response. In <code>rpclib</code> terminology, a notification is like an <code>async_call</code> without a return value.</p>
+<div class="admonition warn">
+<p class="admonition-title">Warn</p>
+<p>This function returns immediately (possibly before the notification is written to the socket).</p>
+</div>
+<h4 id="classrpc_1_1client_1a109a04851e70742f53549f4039de21a7" class="doxy">rpc::client::get_connection_state</h4>
+
+<pre><code class="cpp">connection_state rpc::client::get_connection_state() const ;
+</code></pre>
+
+<p>Returns the current connection state. </p>
+<h4 id="classrpc_1_1client_1ac37437bc05b70588c079079b957eb15f" class="doxy">rpc::client::wait_all_responses</h4>
+
+<pre><code class="cpp">void rpc::client::wait_all_responses();
+</code></pre>
+
+<p>Waits for the completion of all ongoing calls. </p>
+<h2 id="rpcrpc_error">rpc::rpc_error</h2>
+<pre><code class="cpp">#include &quot;rpc/rpc_error.h&quot;
+</code></pre>
+
+<h3 id="description_1">Description</h3>
+<p>This exception is thrown by the client when the server signals an error during a call. </p>
+<p>It allows clients to handle arbitrary error objects as the msgpack-rpc specification allows. In client code you are not supposed to throw it, hence its constructor is private. </p>
+<h3 id="public-functions_1">Public functions</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>std::string</td>
+<td><a href="#classrpc_1_1rpc__error_1a54f9582763c4efd63d7b85232333cd71">get_function_name</a>() const</td>
+</tr>
+<tr>
+<td>msgpack::object_handle &amp;</td>
+<td><a href="#classrpc_1_1rpc__error_1a4d75a9c1717f4c2626dcf0c2bd288364">get_error</a>()</td>
+</tr>
+</tbody>
+</table>
+<h4 id="classrpc_1_1rpc__error_1a54f9582763c4efd63d7b85232333cd71" class="doxy">rpc::rpc_error::get_function_name</h4>
+
+<pre><code class="cpp">std::string rpc::rpc_error::get_function_name() const ;
+</code></pre>
+
+<p>Returns the name of the function that was called on the server while the error occurred. </p>
+<h4 id="classrpc_1_1rpc__error_1a4d75a9c1717f4c2626dcf0c2bd288364" class="doxy">rpc::rpc_error::get_error</h4>
+
+<pre><code class="cpp">msgpack::object_handle &amp; rpc::rpc_error::get_error();
+</code></pre>
+
+<p>Returns the error object that the server provided. </p>
+<h2 id="rpcserver">rpc::server</h2>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+</code></pre>
+
+<h3 id="description_2">Description</h3>
+<p>Implements a msgpack-rpc server. This is the main interfacing point with the library for creating servers. </p>
+<p>The server maintains a registry of function bindings that it uses to dispatch calls. It also takes care of managing worker threads and TCP connections. The server does not start listening right after construction in order to allow binding functions before that. Use the <code>run</code> or <code>async_run</code> functions to start listening on the port. </p>
+<h3 id="public-functions_2">Public functions</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><a href="#classrpc_1_1server_1ac406b44f73cf2ff17240c0cd926a9c1e">server</a>(uint16_t port)</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#classrpc_1_1server_1ad71ffce076d752e116cefa3672e5d188">server</a>(std::string const &amp;address, uint16_t port)</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#classrpc_1_1server_1a20b9197e5ef1a22371e6fbdb7f58b330">~server</a>()</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1server_1a981d7e4a08d04d05cbac6770fab0dff8">run</a>()</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1server_1a462e032fa21cad78eeacc27da103a2b7">async_run</a>(std::size_t worker_threads=1)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1server_1a072135629430df6d5576416806f7b02c">bind</a>(std::string const &amp;name, F func)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1server_1a95d336322c9c24cf014404a3b4f70df5">suppress_exceptions</a>(bool suppress)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1server_1a7df94a496caf38b3d679113c1f62082b">stop</a>()</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1server_1abf6bebbbeea52451aef2126d29240094">close_sessions</a>()</td>
+</tr>
+</tbody>
+</table>
+<h4 id="classrpc_1_1server_1ac406b44f73cf2ff17240c0cd926a9c1e" class="doxy">rpc::server::server</h4>
+
+<pre><code class="cpp"> rpc::server::server(uint16_t port);
+</code></pre>
+
+<p>Constructs a server that listens on the localhost on the specified port. </p>
+<h5 id="parameters_4">Parameters</h5>
+<p><code>port</code> The port number to listen on. </p>
+<h4 id="classrpc_1_1server_1ad71ffce076d752e116cefa3672e5d188" class="doxy">rpc::server::server</h4>
+
+<pre><code class="cpp"> rpc::server::server(std::string const &amp;address, uint16_t port);
+</code></pre>
+
+<p>Constructs a server that listens on the specified address on the specified port. </p>
+<h5 id="parameters_5">Parameters</h5>
+<p><code>port</code> The port number to listen on. </p>
+<h4 id="classrpc_1_1server_1a20b9197e5ef1a22371e6fbdb7f58b330" class="doxy">rpc::server::~server</h4>
+
+<pre><code class="cpp"> rpc::server::~server();
+</code></pre>
+
+<p>Destructor. </p>
+<h5 id="details_4">Details</h5>
+<p>When the server is destroyed, all ongoin sessions are closed gracefully. </p>
+<h4 id="classrpc_1_1server_1a981d7e4a08d04d05cbac6770fab0dff8" class="doxy">rpc::server::run</h4>
+
+<pre><code class="cpp">void rpc::server::run();
+</code></pre>
+
+<p>Starts the server loop. This is a blocking call. </p>
+<h5 id="details_5">Details</h5>
+<p>First and foremost, running the event loop causes the server to start listening on the specified port. Also, as connections are established and calls are made by clients, the server executes the calls as part of this call. This means that the handlers are executed on the thread that calls <code>run</code>. Reads and writes are initiated by this function </p>
+<h4 id="classrpc_1_1server_1a462e032fa21cad78eeacc27da103a2b7" class="doxy">rpc::server::async_run</h4>
+
+<pre><code class="cpp">void rpc::server::async_run(std::size_t worker_threads=1);
+</code></pre>
+
+<p>Starts the server loop on one or more threads. This is a non-blocking call. </p>
+<h5 id="parameters_6">Parameters</h5>
+<p><code>worker_threads</code> The number of worker threads to start. </p>
+<h5 id="details_6">Details</h5>
+<p>This function behaves similarly to <code>run</code>, except the event loop is optionally started on different threads. Effectively this sets up a worker thread pool for the server. Handlers will be executed on one of the threads.</p>
+<h4 id="classrpc_1_1server_1a072135629430df6d5576416806f7b02c" class="doxy">rpc::server::bind</h4>
+
+<pre><code class="cpp">void rpc::server::bind(std::string const &amp;name, F func);
+</code></pre>
+
+<p>Binds a functor to a name so it becomes callable via RPC. </p>
+<h5 id="template-parameters_3">Template parameters</h5>
+<p><code>F</code> The type of the functor. </p>
+<h5 id="parameters_7">Parameters</h5>
+<p><code>name</code> The name of the functor. </p>
+<p><code>func</code> The functor to bind. </p>
+<h5 id="details_7">Details</h5>
+<p>This function template accepts a wide range of callables. The arguments and return types of these callables should be serializable by msgpack. <code>bind</code> effectively generates a suitable, light-weight compile-time wrapper for the functor.</p>
+<h4 id="classrpc_1_1server_1a95d336322c9c24cf014404a3b4f70df5" class="doxy">rpc::server::suppress_exceptions</h4>
+
+<pre><code class="cpp">void rpc::server::suppress_exceptions(bool suppress);
+</code></pre>
+
+<p>Sets the exception behavior in handlers. By default, handlers throwing will crash the server. If suppressing is on, the server will try to gather textual data and return it to the client as an error response. </p>
+<div class="admonition warn">
+<p class="admonition-title">Warn</p>
+<p>Setting this flag only affects subsequent connections. </p>
+</div>
+<h4 id="classrpc_1_1server_1a7df94a496caf38b3d679113c1f62082b" class="doxy">rpc::server::stop</h4>
+
+<pre><code class="cpp">void rpc::server::stop();
+</code></pre>
+
+<p>Stops the server. </p>
+<div class="admonition warn">
+<p class="admonition-title">Warn</p>
+<p>This should not be called from worker threads. </p>
+</div>
+<h4 id="classrpc_1_1server_1abf6bebbbeea52451aef2126d29240094" class="doxy">rpc::server::close_sessions</h4>
+
+<pre><code class="cpp">void rpc::server::close_sessions();
+</code></pre>
+
+<p>Closes all sessions gracefully. </p>
+<h2 id="rpcthis_handler_t">rpc::this_handler_t</h2>
+<pre><code class="cpp">#include &quot;rpc/this_handler.h&quot;
+</code></pre>
+
+<h3 id="description_3">Description</h3>
+<p>Encapsulates information about the currently executing handler. This is the interface through which bound functions may return errors, arbitrary type responses or prohibit sending a response. </p>
+<p>To obtain a <code>this_handler_t</code> object that corresponds to the currently executing handler, use the <code>rpc::this_handler()</code> free function. Any changes performed through the <code>this_handler</code> will only be in affect during the current call. It is safe to obtain multiple <code>this_handler</code>s from concurrently executing handlers. Each object is unique to the current thread.</p>
+<h3 id="public-functions_3">Public functions</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1this__handler__t_1a6cfb57fa89c28bd49c6ec82c42c32e87">respond_error</a>(T &amp;&amp;err_obj)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1this__handler__t_1ab825539a615b55772ebc1513cf2b44c7">respond</a>(T &amp;&amp;resp_obj)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1this__handler__t_1a179997ea536a93f1b8054e0a480876a5">disable_response</a>()</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1this__handler__t_1aac9c17130dea7ded4bf020a370a0b9aa">enable_response</a>()</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1this__handler__t_1a0a53e27b4d8d5b542790b218029d26f4">clear</a>()</td>
+</tr>
+</tbody>
+</table>
+<h4 id="classrpc_1_1this__handler__t_1a6cfb57fa89c28bd49c6ec82c42c32e87" class="doxy">rpc::this_handler_t::respond_error</h4>
+
+<pre><code class="cpp">void rpc::this_handler_t::respond_error(T &amp;&amp;err_obj);
+</code></pre>
+
+<p>Sets an arbitrary object to be sent back as an error response to the client. </p>
+<h5 id="template-parameters_4">Template parameters</h5>
+<p><code>T</code> The type of the error object. </p>
+<h5 id="parameters_8">Parameters</h5>
+<p><code>err_obj</code> The error object. This can be anything that is possible to encode with messagepack (even custom structures). </p>
+<h5 id="details_8">Details</h5>
+<p>Internally, this function throws an exception, i.e. the control flow is interrupted at the point of this call.</p>
+<h4 id="classrpc_1_1this__handler__t_1ab825539a615b55772ebc1513cf2b44c7" class="doxy">rpc::this_handler_t::respond</h4>
+
+<pre><code class="cpp">void rpc::this_handler_t::respond(T &amp;&amp;resp_obj);
+</code></pre>
+
+<p>Sets an arbitrary object to be sent back as the response to the call. </p>
+<h5 id="template-parameters_5">Template parameters</h5>
+<p><code>T</code> The type of the response object. </p>
+<h5 id="parameters_9">Parameters</h5>
+<p><code>resp_obj</code> The response object. This can be anything that is possible to encode with messagepack (even custom structures). </p>
+<h5 id="details_9">Details</h5>
+<p>Internally, this function throws an exception, i.e. the control flow is interrupted at the point of this call.</p>
+<div class="admonition warn">
+<p class="admonition-title">Warn</p>
+<p>The normal return value of the function (if any) will be ignored if a special response is set.</p>
+</div>
+<h4 id="classrpc_1_1this__handler__t_1a179997ea536a93f1b8054e0a480876a5" class="doxy">rpc::this_handler_t::disable_response</h4>
+
+<pre><code class="cpp">void rpc::this_handler_t::disable_response();
+</code></pre>
+
+<p>Instructs the server to not send a response to the client (ignoring any errors and return values). </p>
+<div class="admonition warn">
+<p class="admonition-title">Warn</p>
+<p>It is unusual to not send a response to requests, and doing so might cause problems in the client (depending on its implementation). </p>
+</div>
+<h4 id="classrpc_1_1this__handler__t_1aac9c17130dea7ded4bf020a370a0b9aa" class="doxy">rpc::this_handler_t::enable_response</h4>
+
+<pre><code class="cpp">void rpc::this_handler_t::enable_response();
+</code></pre>
+
+<p>Re-enables sending a response to the call. Sending the response is by default enabled. Enabling the response multiple times have no effect. </p>
+<h4 id="classrpc_1_1this__handler__t_1a0a53e27b4d8d5b542790b218029d26f4" class="doxy">rpc::this_handler_t::clear</h4>
+
+<pre><code class="cpp">void rpc::this_handler_t::clear();
+</code></pre>
+
+<p>Sets all state of the object to default. </p>
+<h2 id="rpcthis_server_t">rpc::this_server_t</h2>
+<pre><code class="cpp">#include &quot;rpc/this_server.h&quot;
+</code></pre>
+
+<h3 id="description_4">Description</h3>
+<p>Allows controlling the server instance from the currently executing handler. </p>
+<h3 id="public-functions_4">Public functions</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1this__server__t_1a7e522ccc489d7376e2d795f030f3890f">stop</a>()</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1this__server__t_1a127035c6f2281a5a1bfadf19f4dfe451">cancel_stop</a>()</td>
+</tr>
+</tbody>
+</table>
+<h4 id="classrpc_1_1this__server__t_1a7e522ccc489d7376e2d795f030f3890f" class="doxy">rpc::this_server_t::stop</h4>
+
+<pre><code class="cpp">void rpc::this_server_t::stop();
+</code></pre>
+
+<p>Gracefully stops the server. </p>
+<h5 id="details_10">Details</h5>
+<p>Stopping only takes effect after leaving the handler normally. </p>
+<h4 id="classrpc_1_1this__server__t_1a127035c6f2281a5a1bfadf19f4dfe451" class="doxy">rpc::this_server_t::cancel_stop</h4>
+
+<pre><code class="cpp">void rpc::this_server_t::cancel_stop();
+</code></pre>
+
+<p>Cancels a requested stop operation. </p>
+<h2 id="rpcthis_session_t">rpc::this_session_t</h2>
+<pre><code class="cpp">#include &quot;rpc/this_session.h&quot;
+</code></pre>
+
+<h3 id="description_5">Description</h3>
+<p>Encapsulates information about the server session/connection this handler is running in. This is the interface through which bound functions may interact with the session. </p>
+<p>A session represents a connection on the server that corresponds to a single client. </p>
+<h3 id="public-functions_5">Public functions</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1this__session__t_1ae0551bc44674bdd43e33a4d4a36781b0">post_exit</a>()</td>
+</tr>
+</tbody>
+</table>
+<h4 id="classrpc_1_1this__session__t_1ae0551bc44674bdd43e33a4d4a36781b0" class="doxy">rpc::this_session_t::post_exit</h4>
+
+<pre><code class="cpp">void rpc::this_session_t::post_exit();
+</code></pre>
+
+<p>Gracefully exits the session (i.e. ongoing writes and reads are completed; queued writes and reads are not). </p>
+<div class="admonition warn">
+<p class="admonition-title">Warn</p>
+<p>Use this function if you need to close the connection from a handler. </p>
+</div></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> and <a href="http://www.stack.nl/~dimitri/doxygen/index.html">Doxygen</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

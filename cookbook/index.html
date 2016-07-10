@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>Cookbook - rpclib</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles/solarized-light.css">
+
+
+    <link href="../extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">rpclib</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../gettingstarted/">Getting started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../primer/">Primer</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Cookbook</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../glossary/">Glossary</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../compiling/">Compiling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../design/">Internal design</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../spec/">Specification</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../reference/">Reference</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../primer/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../glossary/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#cookbook">Cookbook</a></li>
+        
+            <li class="second-level"><a href="#server-examples">Server examples</a></li>
+            
+                <li class="third-level"><a href="#creating-a-server">Creating a server</a></li>
+            
+                <li class="third-level"><a href="#binding-exposing-free-functions">Binding (exposing) free functions</a></li>
+            
+                <li class="third-level"><a href="#binding-lambdas">Binding lambdas</a></li>
+            
+                <li class="third-level"><a href="#binding-member-functions">Binding member functions</a></li>
+            
+                <li class="third-level"><a href="#multiple-worker-threads">Multiple worker threads</a></li>
+            
+                <li class="third-level"><a href="#binding-using-custom-types">Binding using custom types</a></li>
+            
+                <li class="third-level"><a href="#responding-with-errors">Responding with errors</a></li>
+            
+                <li class="third-level"><a href="#responding-with-arbitrary-objects">Responding with arbitrary objects</a></li>
+            
+                <li class="third-level"><a href="#disabling-response">Disabling response</a></li>
+            
+                <li class="third-level"><a href="#exiting-a-session">Exiting a session</a></li>
+            
+                <li class="third-level"><a href="#stopping-a-server">Stopping a server</a></li>
+            
+        
+            <li class="second-level"><a href="#client-examples">Client examples</a></li>
+            
+                <li class="third-level"><a href="#creating-a-client">Creating a client</a></li>
+            
+                <li class="third-level"><a href="#calling-functions">Calling functions</a></li>
+            
+                <li class="third-level"><a href="#getting-return-values">Getting return values</a></li>
+            
+                <li class="third-level"><a href="#calling-functions-asynchronously">Calling functions asynchronously</a></li>
+            
+                <li class="third-level"><a href="#querying-the-connection-state">Querying the connection state</a></li>
+            
+                <li class="third-level"><a href="#calling-a-function-with-a-timeout">Calling a function with a timeout</a></li>
+            
+        
+            <li class="second-level"><a href="#where-to-go-from-here">Where to go from here</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="cookbook">Cookbook</h1>
+<p>Welcome to the Cookbook! This is a collection of short examples that allows you to quickly learn
+the ins and outs of <code>rpclib</code>. This guide is written in the spirit of "less talk and more code" (it's mostly only the titles, but also look out for the comments, they contain important information).
+If you prefer detailed instructions and explanation, you might want to start with the
+<a href="../primer/">Primer</a>.</p>
+<h2 id="server-examples">Server examples</h2>
+<h3 id="creating-a-server">Creating a server</h3>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+
+    srv.run(); // blocking call
+    return 0;
+}
+</code></pre>
+
+<h3 id="binding-exposing-free-functions">Binding (exposing) free functions</h3>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+#include &lt;iostream&gt;
+
+void foo() {
+    std::cout &lt;&lt; &quot;Hey, I'm a free function.&quot; &lt;&lt; std::endl;
+}
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+
+    srv.bind(&quot;foo&quot;, &amp;foo);
+
+    srv.run(); // blocking call, handlers run on this thread.
+    return 0;
+}
+</code></pre>
+
+<h3 id="binding-lambdas">Binding lambdas</h3>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+
+    srv.bind(&quot;hl3&quot;, []() { 
+        std::cout &lt;&lt; &quot;Hey, I'm a lambda!&quot; &lt;&lt; std::endl; 
+    });
+
+    srv.run(); // blocking call
+    return 0;
+}
+</code></pre>
+
+<h3 id="binding-member-functions">Binding member functions</h3>
+<p>Consider this class:</p>
+<pre><code class="cpp">class foo_class {
+public:
+    void quaz() {
+        std::cout &lt;&lt; &quot;Hey, I'm a member function!&quot; &lt;&lt; std::endl;
+    }
+};
+</code></pre>
+
+<h4 id="version-1-binding-through-a-lambda-preferred">Version 1: Binding through a lambda (preferred)</h4>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+    foo_class foo_obj;
+
+    srv.bind(&quot;quaz&quot;, [&amp;foo_obj](){ foo_obj.quaz(); }); 
+
+    srv.run(); // blocking call
+
+    // NOTE: you have to make sure that the lifetime of foo_obj 
+    // exceeds that of the server.
+
+    return 0;
+}
+</code></pre>
+
+<h4 id="version-2-using-stdbind">Version 2: using <code>std::bind</code></h4>
+<pre><code class="cpp">#include &lt;functional&gt;
+
+#include &quot;rpc/server.h&quot;
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+    foo_class foo_obj;
+
+    std::function&lt;void()&gt; functor{std::bind(&amp;foo_class::quaz, &amp;foo_obj)};
+
+    srv.bind(&quot;quaz&quot;, functor);
+
+    srv.run(); // blocking call
+
+    // NOTE: you have to make sure that the lifetime of foo_obj 
+    // exceeds that of the server.
+
+    return 0;
+}
+</code></pre>
+
+<h3 id="multiple-worker-threads">Multiple worker threads</h3>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+#include &lt;iostream&gt;
+
+void foo() {
+    std::cout &lt;&lt; &quot;Hey, I'm a free function.&quot; &lt;&lt; std::endl;
+}
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+
+    srv.bind(&quot;foo&quot;, &amp;foo);
+
+    constexpr size_t thread_count = 8;
+
+    srv.async_run(thread_count); // non-blocking call, handlers execute on one of the workers
+
+    std::cin.ignore();
+    return 0;
+}
+</code></pre>
+
+<h3 id="binding-using-custom-types">Binding using custom types</h3>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+
+struct custom_type {
+    int x;
+    double y;
+    std::string str;
+    MSGPACK_DEFINE_ARRAY(x, y, str); // or MSGPACK_DEFINE_MAP
+};
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+
+    srv.bind(&quot;cool_function&quot;, [](custom_type const&amp; c) {
+        std::cout &lt;&lt; &quot;c = { &quot; &lt;&lt; c.x &lt;&lt; &quot;, &quot;
+                  &lt;&lt; c.y &lt;&lt; &quot;, &quot; &lt;&lt; c.str &lt;&lt; &quot;}&quot; &lt;&lt; std::endl;
+    });
+
+    srv.run(); // blocking call
+    return 0;
+}
+</code></pre>
+
+<h3 id="responding-with-errors">Responding with errors</h3>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+#include &quot;rpc/this_handler.h&quot;
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+
+    srv.bind(&quot;error&quot;, []() { 
+        auto err_obj = std::make_tuple(13, &quot;Errors are arbitrary objects&quot;);
+        rpc::this_handler().respond_error(err_obj);
+    });
+
+    srv.run(); // blocking call
+    return 0;
+}
+</code></pre>
+
+<h3 id="responding-with-arbitrary-objects">Responding with arbitrary objects</h3>
+<p>Even though C++ isn't, <code>msgpack-rpc</code> is very lenient on types. Your client might be implemented in
+a dynamic language.</p>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+#include &quot;rpc/this_handler.h&quot;
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+
+    srv.bind(&quot;oh&quot;, [](bool quirky) -&gt; std::string { 
+        if (quirky) {
+            rpc::this_handler().respond(5);
+        }
+        return &quot;I'm not quirky.&quot;;
+    });
+
+    srv.run(); // blocking call
+    return 0;
+}
+</code></pre>
+
+<h3 id="disabling-response">Disabling response</h3>
+<p>This prevents the server from ever writing a response to a particular call.</p>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+#include &quot;rpc/this_handler.h&quot;
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+
+    srv.bind(&quot;plz_respond&quot;, [](bool nice) {
+        if (nice) {
+            rpc::this_handler().disable_response();
+        }
+        return &quot;ok&quot;;
+    });
+
+    srv.run(); // blocking call
+    return 0;
+}
+</code></pre>
+
+<h3 id="exiting-a-session">Exiting a session</h3>
+<p>A session represents a client connection on the server. All ongoing writes and reads are completed first.</p>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+#include &quot;rpc/this_session.h&quot;
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+
+    srv.bind(&quot;exit&quot;, []() {
+        rpc::this_session().post_exit(); // post exit to the queue
+    });
+
+    srv.run(); // blocking call
+    return 0;
+}
+</code></pre>
+
+<p><code>post_exit</code> will add exiting the session as a work item to the queue. This means that exiting is
+not instantenous. The TCP connection will be closed gracefully.</p>
+<h3 id="stopping-a-server">Stopping a server</h3>
+<p>To gracefully stop all sessions on the server. All ongoing writes and reads are completed first.</p>
+<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+#include &quot;rpc/this_server.h&quot;
+
+int main() {
+    rpc::server srv(8080); // listen on TCP port 8080
+
+    srv.bind(&quot;stop_server&quot;, []() {
+        rpc::this_server().stop();
+    });
+
+    srv.run(); // blocking call
+    return 0;
+}
+</code></pre>
+
+<h2 id="client-examples">Client examples</h2>
+<h3 id="creating-a-client">Creating a client</h3>
+<pre><code class="cpp">#include &quot;rpc/client.h&quot;
+
+int main() {
+    rpc::client c(&quot;127.0.0.1&quot;, 8080);
+
+    // client initiates async connection upon creation
+    return 0;
+
+    // destructor of client disconnects
+}
+</code></pre>
+
+<h3 id="calling-functions">Calling functions</h3>
+<pre><code class="cpp">#include &quot;rpc/client.h&quot;
+
+int main() {
+    rpc::client c(&quot;127.0.0.1&quot;, 8080);
+
+    // client initiates async connection upon creation
+
+    // call blocks until:
+    // - connection is established
+    // - result is read
+    c.call(&quot;foo&quot;, 2, 3.3, &quot;str&quot;); 
+
+    return 0;
+}
+</code></pre>
+
+<h3 id="getting-return-values">Getting return values</h3>
+<pre><code class="cpp">#include &quot;rpc/client.h&quot;
+
+int main() {
+    rpc::client c(&quot;127.0.0.1&quot;, 8080);
+    int a = c.call(&quot;add&quot;, 2, 3).as&lt;int&gt;(); 
+
+    return 0;
+}
+</code></pre>
+
+<h3 id="calling-functions-asynchronously">Calling functions asynchronously</h3>
+<pre><code class="cpp">#include &quot;rpc/client.h&quot;
+
+int main() {
+    rpc::client c(&quot;127.0.0.1&quot;, 8080);
+
+    auto a_future = c.async_call(&quot;add&quot;, 2, 3); // non-blocking, returns std::future
+
+    std::cout &lt;&lt; &quot;I can do something here immediately&quot; &lt;&lt; std::endl;
+
+    int a = a_future.get().as&lt;int&gt;(); // possibly blocks if the result is not yet available
+
+    return 0;
+}
+</code></pre>
+
+<h3 id="querying-the-connection-state">Querying the connection state</h3>
+<pre><code class="cpp">#include &quot;rpc/client.h&quot;
+
+int main() {
+    rpc::client c(&quot;127.0.0.1&quot;, 8080);
+    client::connection_state cs = c.get_connection_state();
+
+    return 0;
+}
+</code></pre>
+
+<h3 id="calling-a-function-with-a-timeout">Calling a function with a timeout</h3>
+<pre><code class="cpp">#include &lt;chrono&gt;
+#include &quot;rpc/client.h&quot;
+
+int main() {
+    using namespace std::chrono_literals;
+    rpc::client c(&quot;127.0.0.1&quot;, 8080);
+
+    auto f = c.async_call(&quot;long_func&quot;); // non-blocking, returns std::future
+
+    if (f.wait_for(50ms) == std::future_status::timeout) {
+        std::cout &lt;&lt; &quot;Oh no, the call timed out!&quot; &lt;&lt; std::endl;
+        // it's possible to wait more here
+    }
+    else {
+        std::cout &lt;&lt; &quot;Oh yes, the call finished in time!&quot; &lt;&lt; std::endl;
+        // future::get() wiil already have the result at this point
+    }
+
+    return 0;
+}
+</code></pre>
+
+<h2 id="where-to-go-from-here">Where to go from here</h2>
+<p>If you want to know even more about <code>rpclib</code>, look behind the abstractions in the <a href="../design/">Design</a> chapter which explains the internal workings and design decisions. </p></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> and <a href="http://www.stack.nl/~dimitri/doxygen/index.html">Doxygen</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
