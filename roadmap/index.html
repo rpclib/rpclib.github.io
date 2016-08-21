@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="shortcut icon" href="../img/favicon.ico?v=2">
 
-    <title>Glossary - rpclib</title>
+    <title>Roadmap - rpclib</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -73,7 +73,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -96,8 +96,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Glossary</a>
+<li >
+    <a href="../glossary/">Glossary</a>
 </li>
 
                         
@@ -106,7 +106,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -129,8 +129,8 @@
 
                         
                             
-<li >
-    <a href="../roadmap/">Roadmap</a>
+<li class="active">
+    <a href="./">Roadmap</a>
 </li>
 
                         
@@ -161,12 +161,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../cookbook/">
+                        <a rel="next" href="../spec/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../compiling/">
+                        <a rel="prev" href="../contributing/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -182,24 +182,19 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#glossary">Glossary</a></li>
+        <li class="first-level active"><a href="#roadmap">Roadmap</a></li>
         
-            <li class="second-level"><a href="#server">Server</a></li>
+            <li class="second-level"><a href="#support-different-transports">Support different transports</a></li>
             
         
-            <li class="second-level"><a href="#client">Client</a></li>
+            <li class="second-level"><a href="#support-different-protocols">Support different protocols</a></li>
+            
+                <li class="third-level"><a href="#support-framed-msgpack-rpc">Support framed-msgpack-rpc</a></li>
             
         
-            <li class="second-level"><a href="#binding">Binding</a></li>
+            <li class="second-level"><a href="#code-generator">Code generator</a></li>
             
-        
-            <li class="second-level"><a href="#handler">Handler</a></li>
-            
-        
-            <li class="second-level"><a href="#function">Function</a></li>
-            
-        
-            <li class="second-level"><a href="#worker">Worker</a></li>
+                <li class="third-level"><a href="#support-idls-of-other-rpc-libraries">Support IDLs of other RPC libraries</a></li>
             
         
     
@@ -207,21 +202,28 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="glossary">Glossary</h1>
-<p>This is a collection of terms used in the documentation and API of rpclib.</p>
-<h3 id="server">Server</h3>
-<p>A program that acts as an RPC endpoint receiving calls.</p>
-<h3 id="client">Client</h3>
-<p>A program that connects to Servers and calls their bound functions.</p>
-<h3 id="binding">Binding</h3>
-<p>Exposing a functor of the Server with a name.</p>
-<h3 id="handler">Handler</h3>
-<p>A bound functor.</p>
-<h3 id="function">Function</h3>
-<p>The documentation sometimes uses the terms function and functor interchangeably. In these cases,
-both refer to "things that can be called"</p>
-<h3 id="worker">Worker</h3>
-<p>A thread that performes work in the Server.</p></div>
+<h1 id="roadmap">Roadmap</h1>
+<p>This chapter is about features that are planned in the upcoming versions of <code>rpclib</code>. Keep in mind
+that this serves merely as a draft of current ideas; something being here is not guaranteed to ever
+be implmented; and anything that's <em>not</em> here can be implemented at any time.</p>
+<h2 id="support-different-transports">Support different transports</h2>
+<p>The library is currently TCP-only. It should be possible to use domain pipes/windows pipes which
+are useful for fast IPC. UDP can be added as well, although I'm not sure how conformant that would
+be with msgpack-rpc. Implementing transports might be exposed to the users of the library as well.</p>
+<h2 id="support-different-protocols">Support different protocols</h2>
+<p>There are protocols that are structured very similarly to <code>msgpack-rpc</code>, such as <code>json-rpc</code>.
+Considering this, it won't be terribly hard to refactor the wrapper-generation to allow
+consuming and producing different protocols.</p>
+<h3 id="support-framed-msgpack-rpc">Support framed-msgpack-rpc</h3>
+<p>nodejs uses a variation of msgpack-rpc, called framed-msgpack-rpc. It's the same protocol, but the
+messages are delimited with their sizes which allows avoiding reallocations for large messages.</p>
+<h2 id="code-generator">Code generator</h2>
+<p>Using libclang, it's fairly easy to parse a C++ header file. With attributes provided by the
+library, it should be possible to mark a class for RPC exposure and the code generator should take
+care of creating a specialized server for the class (or client for an interface).</p>
+<h3 id="support-idls-of-other-rpc-libraries">Support IDLs of other RPC libraries</h3>
+<p>Apache Thrift, gRPC, etc. have IDLs that describe a service. <code>rpclib</code> should provide tools to parse
+these IDLs to allow using <code>rpclib</code> as a drop-in replacement.</p></div>
         
     </div>
 

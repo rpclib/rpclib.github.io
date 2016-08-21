@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="../img/favicon.ico?v=2">
 
     <title>Reference - rpclib</title>
 
@@ -118,7 +118,7 @@
                         
                             
 <li >
-    <a href="../design/">Internal design</a>
+    <a href="../internals/">Internals</a>
 </li>
 
                         
@@ -128,7 +128,19 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../roadmap/">Roadmap</a>
+</li>
+
+                        
                         </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../contributing/">Contributing</a>
                     </li>
                 
                 
@@ -149,7 +161,7 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../spec/">
+                        <a rel="next" href="../contributing/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -333,12 +345,12 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 
 <p>Sends a notification with the given name and arguments (if any). </p>
 <h5 id="template-parameters_2">Template parameters</h5>
-<p><code>Args</code> The types of the arguments.</p>
+<p><code>Args</code> THe types of the arguments.</p>
 <h5 id="parameters_3">Parameters</h5>
 <p><code>func_name</code> The name of the notification to call. </p>
 <p><code>args</code> The arguments to pass to the function. </p>
 <h5 id="details_3">Details</h5>
-<p>Notifications are a special kind of calls. They can be used to notify the server while not waiting for a response. In <code>rpclib</code> terminology, a notification is like an <code>async_call</code> without a return value.</p>
+<p>Notifications are a special kind of calls. They can be used to notify the server, while not expecting a response. In <code>rpclib</code> terminology, a notification is like an <code>async_call</code> without a return value.</p>
 <div class="admonition warn">
 <p class="admonition-title">Warn</p>
 <p>This function returns immediately (possibly before the notification is written to the socket).</p>
@@ -361,7 +373,7 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 
 <h3 id="description_1">Description</h3>
 <p>This exception is thrown by the client when the server signals an error during a call. </p>
-<p>It allows clients to handle arbitrary error objects as the msgpack-rpc specification allows. In client code you are not supposed to throw it, hence its constructor is private. </p>
+<p>This type allows clients to handle arbitrary error objects as the msgpack-rpc specification allows. In client code you probably don't want to throw it, hence its constructor is private. </p>
 <h3 id="public-functions_1">Public functions</h3>
 <table>
 <thead>
@@ -377,7 +389,7 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 </tr>
 <tr>
 <td>msgpack::object_handle &amp;</td>
-<td><a href="#classrpc_1_1rpc__error_1a4d75a9c1717f4c2626dcf0c2bd288364">get_error</a>()</td>
+<td><a href="#classrpc_1_1rpc__error_1a2ba49857c07928d4f436d1bab0444e66">get_error</a>()</td>
 </tr>
 </tbody>
 </table>
@@ -387,7 +399,7 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 </code></pre>
 
 <p>Returns the name of the function that was called on the server while the error occurred. </p>
-<h4 id="classrpc_1_1rpc__error_1a4d75a9c1717f4c2626dcf0c2bd288364" class="doxy">rpc::rpc_error::get_error</h4>
+<h4 id="classrpc_1_1rpc__error_1a2ba49857c07928d4f436d1bab0444e66" class="doxy">rpc::rpc_error::get_error</h4>
 
 <pre><code class="cpp">msgpack::object_handle &amp; rpc::rpc_error::get_error();
 </code></pre>
@@ -534,7 +546,6 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 
 <h3 id="description_3">Description</h3>
 <p>Encapsulates information about the currently executing handler. This is the interface through which bound functions may return errors, arbitrary type responses or prohibit sending a response. </p>
-<p>To obtain a <code>this_handler_t</code> object that corresponds to the currently executing handler, use the <code>rpc::this_handler()</code> free function. Any changes performed through the <code>this_handler</code> will only be in affect during the current call. It is safe to obtain multiple <code>this_handler</code>s from concurrently executing handlers. Each object is unique to the current thread.</p>
 <h3 id="public-functions_3">Public functions</h3>
 <table>
 <thead>
@@ -576,8 +587,6 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 <p><code>T</code> The type of the error object. </p>
 <h5 id="parameters_8">Parameters</h5>
 <p><code>err_obj</code> The error object. This can be anything that is possible to encode with messagepack (even custom structures). </p>
-<h5 id="details_8">Details</h5>
-<p>Internally, this function throws an exception, i.e. the control flow is interrupted at the point of this call.</p>
 <h4 id="classrpc_1_1this__handler__t_1ab825539a615b55772ebc1513cf2b44c7" class="doxy">rpc::this_handler_t::respond</h4>
 
 <pre><code class="cpp">void rpc::this_handler_t::respond(T &amp;&amp;resp_obj);
@@ -588,11 +597,9 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 <p><code>T</code> The type of the response object. </p>
 <h5 id="parameters_9">Parameters</h5>
 <p><code>resp_obj</code> The response object. This can be anything that is possible to encode with messagepack (even custom structures). </p>
-<h5 id="details_9">Details</h5>
-<p>Internally, this function throws an exception, i.e. the control flow is interrupted at the point of this call.</p>
 <div class="admonition warn">
 <p class="admonition-title">Warn</p>
-<p>The normal return value of the function (if any) will be ignored if a special response is set.</p>
+<p>The normal return value of the function (if any) will be ignored if a special response is set. </p>
 </div>
 <h4 id="classrpc_1_1this__handler__t_1a179997ea536a93f1b8054e0a480876a5" class="doxy">rpc::this_handler_t::disable_response</h4>
 
@@ -609,7 +616,7 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 <pre><code class="cpp">void rpc::this_handler_t::enable_response();
 </code></pre>
 
-<p>Re-enables sending a response to the call. Sending the response is by default enabled. Enabling the response multiple times have no effect. </p>
+<p>Enables sending a response to the call. Sending the response is by default enabled. Enabling the response multiple times have no effect. </p>
 <h4 id="classrpc_1_1this__handler__t_1a0a53e27b4d8d5b542790b218029d26f4" class="doxy">rpc::this_handler_t::clear</h4>
 
 <pre><code class="cpp">void rpc::this_handler_t::clear();
@@ -647,8 +654,6 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 </code></pre>
 
 <p>Gracefully stops the server. </p>
-<h5 id="details_10">Details</h5>
-<p>Stopping only takes effect after leaving the handler normally. </p>
 <h4 id="classrpc_1_1this__server__t_1a127035c6f2281a5a1bfadf19f4dfe451" class="doxy">rpc::this_server_t::cancel_stop</h4>
 
 <pre><code class="cpp">void rpc::this_server_t::cancel_stop();
@@ -661,7 +666,6 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 
 <h3 id="description_5">Description</h3>
 <p>Encapsulates information about the server session/connection this handler is running in. This is the interface through which bound functions may interact with the session. </p>
-<p>A session represents a connection on the server that corresponds to a single client. </p>
 <h3 id="public-functions_5">Public functions</h3>
 <table>
 <thead>

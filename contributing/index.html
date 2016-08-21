@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="shortcut icon" href="../img/favicon.ico?v=2">
 
-    <title>Glossary - rpclib</title>
+    <title>Contributing - rpclib</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -73,7 +73,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -96,8 +96,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Glossary</a>
+<li >
+    <a href="../glossary/">Glossary</a>
 </li>
 
                         
@@ -139,8 +139,8 @@
                 
                 
                 
-                    <li >
-                        <a href="../contributing/">Contributing</a>
+                    <li class="active">
+                        <a href="./">Contributing</a>
                     </li>
                 
                 
@@ -161,12 +161,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../cookbook/">
+                        <a rel="next" href="../roadmap/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../compiling/">
+                        <a rel="prev" href="../reference/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -182,24 +182,28 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#glossary">Glossary</a></li>
+        <li class="first-level active"><a href="#contributing">Contributing</a></li>
         
-            <li class="second-level"><a href="#server">Server</a></li>
+            <li class="second-level"><a href="#why-contribute">Why contribute</a></li>
+            
+                <li class="third-level"><a href="#ive-never-contributed-to-open-source-can-i-try-here">I've never contributed to open source, can I try here?</a></li>
+            
+                <li class="third-level"><a href="#am-i-going-to-be-attributed-for-my-contribution">Am I going to be attributed for my contribution?</a></li>
             
         
-            <li class="second-level"><a href="#client">Client</a></li>
+            <li class="second-level"><a href="#what-can-be-contributed">What can be contributed</a></li>
             
-        
-            <li class="second-level"><a href="#binding">Binding</a></li>
+                <li class="third-level"><a href="#issues">Issues</a></li>
             
-        
-            <li class="second-level"><a href="#handler">Handler</a></li>
+                <li class="third-level"><a href="#code">Code</a></li>
             
-        
-            <li class="second-level"><a href="#function">Function</a></li>
+                <li class="third-level"><a href="#support-scripts">Support scripts</a></li>
             
-        
-            <li class="second-level"><a href="#worker">Worker</a></li>
+                <li class="third-level"><a href="#example-projects">Example projects</a></li>
+            
+                <li class="third-level"><a href="#documentation-proofreading">Documentation, proofreading</a></li>
+            
+                <li class="third-level"><a href="#htmlcss">HTML+CSS</a></li>
             
         
     
@@ -207,21 +211,80 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="glossary">Glossary</h1>
-<p>This is a collection of terms used in the documentation and API of rpclib.</p>
-<h3 id="server">Server</h3>
-<p>A program that acts as an RPC endpoint receiving calls.</p>
-<h3 id="client">Client</h3>
-<p>A program that connects to Servers and calls their bound functions.</p>
-<h3 id="binding">Binding</h3>
-<p>Exposing a functor of the Server with a name.</p>
-<h3 id="handler">Handler</h3>
-<p>A bound functor.</p>
-<h3 id="function">Function</h3>
-<p>The documentation sometimes uses the terms function and functor interchangeably. In these cases,
-both refer to "things that can be called"</p>
-<h3 id="worker">Worker</h3>
-<p>A thread that performes work in the Server.</p></div>
+<h1 id="contributing">Contributing</h1>
+<p>This project is MIT-licensed and the development is open. All contributions are welcome. This
+document provides information on why, how and what to contribute.</p>
+<h2 id="why-contribute">Why contribute</h2>
+<p>At the moment, this project is an approachable, intermediate-advanced level C++ project. If you contribute code, you may deepen your knowledge in these areas:</p>
+<ul>
+<li>RPC clients and servers</li>
+<li>Networking (through asio), TCP</li>
+<li>Scalable architecture</li>
+<li>Async programming</li>
+<li>Template metaprogramming * Modern C++ (C++14 and beyond) * Google Test and Google Mock</li>
+<li>Travis CI &amp; Appveyor</li>
+<li>Continous delivery</li>
+<li>CMake</li>
+</ul>
+<h3 id="ive-never-contributed-to-open-source-can-i-try-here">I've never contributed to open source, can I try here?</h3>
+<p>Absolutely! First-time contributors are very much welcome in this project. Having your pull request
+accepted by a project is a great accomplishment. Even if your pull request only fixes a typo, don't
+hesitate to send it. If it's useful and good quality, it will be merged.</p>
+<h3 id="am-i-going-to-be-attributed-for-my-contribution">Am I going to be attributed for my contribution?</h3>
+<p>Yes. Each release will list the names of contributors. If you don't want to be attributed, please
+state it explicitly in the pull request. If you don't have your name on your Github profile or in
+the commit, your username will be used.</p>
+<h2 id="what-can-be-contributed">What can be contributed</h2>
+<h3 id="issues">Issues</h3>
+<p>If you find any issues with a released or development version of <code>rpclib</code>, open an issue ticket on
+Github. Please try to include:</p>
+<ul>
+<li>as many details as possible</li>
+<li>exact steps for reproducing the problem (if applicable)</li>
+<li>pedantic description of what the expected behavior would be</li>
+</ul>
+<h3 id="code">Code</h3>
+<p>Code contributions are welcome as well, no matter how small they are.</p>
+<p>Some guidelines (this section will be expanded later):</p>
+<ul>
+<li>Use clang-format with the included configuration file</li>
+<li>Avoid whitespace-only diffs in files</li>
+<li>Use descriptive commit messages that can serve as a useful piece of code history</li>
+<li>Make sure that all unit tests pass</li>
+<li>Write new, meaningful unit tests for new code</li>
+<li>Document any public code with doxygen</li>
+<li>Update the documentation in the docs folder (if applicable)</li>
+<li>Add examples to the <a href="../cookbook/">Cookbook</a></li>
+<li>Don't add external dependencies</li>
+</ul>
+<p>Pull requests for open issues are preferred over others.</p>
+<p>Please keep in mind that some pull requests may not fit into the vision of the project and may be
+rejected despite matching the above criteria. If you start working on a larger code contribution, it might be a good idea to let the project know about it (especially if there is no open issue about it).</p>
+<h3 id="support-scripts">Support scripts</h3>
+<p><code>rpclib</code> is not only C++: it uses a fair amount of CMake, bash, Powershell and python to achieve
+the end result. These supporting scripts also require continued development, refactoring, cleanup
+and new features. Innovative ideas about how to do this all better are welcome (it's kind of a mess now, admittedly).</p>
+<h3 id="example-projects">Example projects</h3>
+<p>The more example projects <code>rpclib</code> ships with, the better. This is perhaps the most rewarding code
+contribution option, because the guidelines are less strict regarding these.</p>
+<ul>
+<li>Create both a server and client application</li>
+<li>Create a CMakeLists.txt (similarly to existing ones)</li>
+<li>Make sure that your example application demonstrates a use-case that is not demonstrated by
+    other examples (don't worry, there are plenty of those)</li>
+<li>Add lots of coments that explain the code</li>
+<li>You may add any external dependencies</li>
+</ul>
+<h3 id="documentation-proofreading">Documentation, proofreading</h3>
+<p><code>rpclib</code> aims to have an exemplary quality documenation. I'm not a native speaker, so it's likely
+that there are sentences with weird constructs, misspelled words or just typos in many places.
+Correcting those are invaluable help for me. To top it off, there is always room to exapnd, clean
+up and just generally improve the documentation to provide an easy learning curve for new users of
+the library.</p>
+<h3 id="htmlcss">HTML+CSS</h3>
+<p>The very site you are reading now is built using mkdocs and doxygen; but in some places it contains
+hand-written HTML and CSS. This is not my area of expertise. But documentation is not only about
+content, it's also the presentation. Changes that improve the robustness of the HTML and CSS are a huge win for the project.</p></div>
         
     </div>
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="../img/favicon.ico?v=2">
 
     <title>Cookbook - rpclib</title>
 
@@ -118,7 +118,7 @@
                         
                             
 <li >
-    <a href="../design/">Internal design</a>
+    <a href="../internals/">Internals</a>
 </li>
 
                         
@@ -128,7 +128,19 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../roadmap/">Roadmap</a>
+</li>
+
+                        
                         </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../contributing/">Contributing</a>
                     </li>
                 
                 
@@ -209,8 +221,6 @@
             
                 <li class="third-level"><a href="#querying-the-connection-state">Querying the connection state</a></li>
             
-                <li class="third-level"><a href="#calling-a-function-with-a-timeout">Calling a function with a timeout</a></li>
-            
         
             <li class="second-level"><a href="#where-to-go-from-here">Where to go from here</a></li>
             
@@ -261,8 +271,8 @@ int main() {
 int main() {
     rpc::server srv(8080); // listen on TCP port 8080
 
-    srv.bind(&quot;hl3&quot;, []() { 
-        std::cout &lt;&lt; &quot;Hey, I'm a lambda!&quot; &lt;&lt; std::endl; 
+    srv.bind(&quot;hl3&quot;, []() {
+        std::cout &lt;&lt; &quot;Hey, I'm a lambda!&quot; &lt;&lt; std::endl;
     });
 
     srv.run(); // blocking call
@@ -287,11 +297,11 @@ int main() {
     rpc::server srv(8080); // listen on TCP port 8080
     foo_class foo_obj;
 
-    srv.bind(&quot;quaz&quot;, [&amp;foo_obj](){ foo_obj.quaz(); }); 
+    srv.bind(&quot;quaz&quot;, [&amp;foo_obj](){ foo_obj.quaz(); });
 
     srv.run(); // blocking call
 
-    // NOTE: you have to make sure that the lifetime of foo_obj 
+    // NOTE: you have to make sure that the lifetime of foo_obj
     // exceeds that of the server.
 
     return 0;
@@ -313,7 +323,7 @@ int main() {
 
     srv.run(); // blocking call
 
-    // NOTE: you have to make sure that the lifetime of foo_obj 
+    // NOTE: you have to make sure that the lifetime of foo_obj
     // exceeds that of the server.
 
     return 0;
@@ -372,7 +382,7 @@ int main() {
 int main() {
     rpc::server srv(8080); // listen on TCP port 8080
 
-    srv.bind(&quot;error&quot;, []() { 
+    srv.bind(&quot;error&quot;, []() {
         auto err_obj = std::make_tuple(13, &quot;Errors are arbitrary objects&quot;);
         rpc::this_handler().respond_error(err_obj);
     });
@@ -391,7 +401,7 @@ a dynamic language.</p>
 int main() {
     rpc::server srv(8080); // listen on TCP port 8080
 
-    srv.bind(&quot;oh&quot;, [](bool quirky) -&gt; std::string { 
+    srv.bind(&quot;oh&quot;, [](bool quirky) -&gt; std::string {
         if (quirky) {
             rpc::this_handler().respond(5);
         }
@@ -484,7 +494,7 @@ int main() {
     // call blocks until:
     // - connection is established
     // - result is read
-    c.call(&quot;foo&quot;, 2, 3.3, &quot;str&quot;); 
+    c.call(&quot;foo&quot;, 2, 3.3, &quot;str&quot;);
 
     return 0;
 }
@@ -495,7 +505,7 @@ int main() {
 
 int main() {
     rpc::client c(&quot;127.0.0.1&quot;, 8080);
-    int a = c.call(&quot;add&quot;, 2, 3).as&lt;int&gt;(); 
+    int a = c.call(&quot;add&quot;, 2, 3).as&lt;int&gt;();
 
     return 0;
 }
@@ -507,7 +517,7 @@ int main() {
 int main() {
     rpc::client c(&quot;127.0.0.1&quot;, 8080);
 
-    auto a_future = c.async_call(&quot;add&quot;, 2, 3); // non-blocking, returns std::future
+    auto a_future = c.call_async(&quot;add&quot;, 2, 3); // non-blocking, returns std::future
 
     std::cout &lt;&lt; &quot;I can do something here immediately&quot; &lt;&lt; std::endl;
 
@@ -528,31 +538,8 @@ int main() {
 }
 </code></pre>
 
-<h3 id="calling-a-function-with-a-timeout">Calling a function with a timeout</h3>
-<pre><code class="cpp">#include &lt;chrono&gt;
-#include &quot;rpc/client.h&quot;
-
-int main() {
-    using namespace std::chrono_literals;
-    rpc::client c(&quot;127.0.0.1&quot;, 8080);
-
-    auto f = c.async_call(&quot;long_func&quot;); // non-blocking, returns std::future
-
-    if (f.wait_for(50ms) == std::future_status::timeout) {
-        std::cout &lt;&lt; &quot;Oh no, the call timed out!&quot; &lt;&lt; std::endl;
-        // it's possible to wait more here
-    }
-    else {
-        std::cout &lt;&lt; &quot;Oh yes, the call finished in time!&quot; &lt;&lt; std::endl;
-        // future::get() wiil already have the result at this point
-    }
-
-    return 0;
-}
-</code></pre>
-
 <h2 id="where-to-go-from-here">Where to go from here</h2>
-<p>If you want to know even more about <code>rpclib</code>, look behind the abstractions in the <a href="../design/">Design</a> chapter which explains the internal workings and design decisions. </p></div>
+<p>If you want to know even more about <code>rpclib</code>, look behind the abstractions in the <a href="../internals/">Internals</a> chapter which explains the internal workings and design decisions.</p></div>
         
     </div>
 

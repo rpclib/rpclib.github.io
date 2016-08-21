@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="../img/favicon.ico?v=2">
 
     <title>Compiling - rpclib</title>
 
@@ -118,7 +118,7 @@
                         
                             
 <li >
-    <a href="../design/">Internal design</a>
+    <a href="../internals/">Internals</a>
 </li>
 
                         
@@ -128,7 +128,19 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../roadmap/">Roadmap</a>
+</li>
+
+                        
                         </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../contributing/">Contributing</a>
                     </li>
                 
                 
@@ -154,7 +166,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../design/">
+                        <a rel="prev" href="../internals/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -174,9 +186,8 @@
         
             <li class="second-level"><a href="#default-configuration">Default configuration</a></li>
             
-                <li class="third-level"><a href="#unix-type-systems">Unix-type systems</a></li>
-            
-                <li class="third-level"><a href="#microsoft-windows">Microsoft Windows</a></li>
+        
+            <li class="second-level"><a href="#compiling">Compiling</a></li>
             
         
             <li class="second-level"><a href="#advanced-options">Advanced options</a></li>
@@ -191,25 +202,17 @@
 <p>Compiling <code>rpclib</code> is a fairly normal and unsurprising experience if you have used cmake-based projects. This document details the advanced building options as well as building the documentation which you might find useful if you want to reproduce everything locally.</p>
 <h2 id="default-configuration">Default configuration</h2>
 <p>The default configuration is the one intended for end-users. If you want to hack on <code>rpclib</code>, you might be interested in some of the Advanced options.</p>
-<h3 id="unix-type-systems">Unix-type systems</h3>
-<p>This includes most (all?) Linux distributions and cygwin. Building <code>rpclib</code> is very similar to other cmake-based projects:</p>
+<h2 id="compiling">Compiling</h2>
+<p>This includes most (all?) Linux distributions, cygwin and Windows. Building <code>rpclib</code> is very similar to other cmake-based projects:</p>
 <pre><code>git clone git@github.com:rpclib/rpclib.git
-cd rpc
-mkdir build &amp;&amp; cd build
+cd rpclib
+mkdir build
+cd build
 cmake ..
-make
+cmake --build .
 </code></pre>
 
 <p>And that's it. If all goes well, your build output will be in the <code>output</code> directory.</p>
-<h3 id="microsoft-windows">Microsoft Windows</h3>
-<p>On Windows with MSVC it is very similar, except you will probably want to</p>
-<pre><code>git clone git@github.com:sztomi/rpc.git
-cd rpc
-mkdir build &amp;&amp; cd build
-cmake ..
-</code></pre>
-
-<p>... and open the generated solution file in Visual Studio or build it using msbuild.</p>
 <h2 id="advanced-options">Advanced options</h2>
 <p>There are some compilation options that affect the build output. These options can be set using ccmake, cmake-gui or on the cmake command line.</p>
 <table>

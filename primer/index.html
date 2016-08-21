@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="../img/favicon.ico?v=2">
 
     <title>Primer - rpclib</title>
 
@@ -118,7 +118,7 @@
                         
                             
 <li >
-    <a href="../design/">Internal design</a>
+    <a href="../internals/">Internals</a>
 </li>
 
                         
@@ -128,7 +128,19 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../roadmap/">Roadmap</a>
+</li>
+
+                        
                         </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../contributing/">Contributing</a>
                     </li>
                 
                 
@@ -275,7 +287,7 @@ srv.bind(&quot;mul&quot;, [&amp;m](double a, double b) { return m.multiply(a, b)
 <p>These are the names that the client can use to call our functions. There is nothing stopping you from binding <code>divide</code> to the name <code>"add"</code>, but it's a good practice to use names that reflect the source names. It is also possible to bind the same function to multiple names.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Under the hood, each <code>bind</code> statement generates a compile-time a wrapper function that takes a <code>msgpack</code> object, then decodes it into the real parameters of the bound function (if any) and calls the bound function. If the function has a return value the wrapper is generated so that it encodes the result as a <code>msgpack</code> object which the server can send to the client in a response. More information on this mechanism can be found in the <a href="../design/">Design</a> chapter.</p>
+<p>Under the hood, each <code>bind</code> statement generates a compile-time a wrapper function that takes a <code>msgpack</code> object, then decodes it into the real parameters of the bound function (if any) and calls the bound function. If the function has a return value the wrapper is generated so that it encodes the result as a <code>msgpack</code> object which the server can send to the client in a response. More information on this mechanism can be found in the <a href="../internals/">Internals</a> chapter.</p>
 </div>
 <p>After we exposed the function, we need to <code>run</code> the server:</p>
 <pre><code class="cpp">srv.run();
@@ -376,7 +388,7 @@ it part of your server interface and document accordingly.</p>
 }
 </code></pre>
 
-<p>So yes, this means that if you set <code>suppress_excpetions</code> to <code>true</code>, you might as well signal errors from handlers by throwing exceptions. Be advised that <code>respond_error</code> is still valid and remains the preferred way to do so (especially that it's the only way to respond with structured error objects). </p>
+<p>So yes, this means that if you set <code>suppress_excpetions</code> to <code>true</code>, you might as well signal errors from handlers by throwing exceptions. Be advised that <code>respond_error</code> is still valid and remains the preferred way to do so (especially that it's the only way to respond with structured error objects).</p>
 <p>What exactly happens to the suppressed exception? <code>rpclib</code> will try to catch <code>std::exceptions</code> and use their <code>what()</code> members to get a string representation which it sets as an error.</p>
 <p>What if you throw something that is not a <code>std::exception</code>-descendant? First of all, shame on you. Second, <code>rpclib</code> will send an error message letting your clients know that you threw something that is not a <code>std::exception</code> (<em>shaming you in front of your clients</em>). Don't do this, really.</p>
 <h2 id="a-more-complicated-server-parallel-mandelbrot-generation">A more complicated server - Parallel mandelbrot-generation</h2>
@@ -510,7 +522,7 @@ int main() {
 <pre><code>add(2, 3) = 5
 sub(3, 2) = 1
 mul(5, 0) = 0
-div(3, 0) = 
+div(3, 0) =
 rpclib: a handler responded with an error
 in function 'div': [error 1]: Division by zero
 </code></pre>
@@ -558,8 +570,8 @@ auto result = result_obj.get().as&lt;pixel_data&gt;();
 <p>The two worker threads in the mandelbrot server can serve two clients in parallel. Or two calls of the same client, which happens in the example. In order to be able to send two requests in an interleaved fashion, we first use <code>async_call</code> which allows the control flow of the client to continue.</p>
 <h1 id="where-to-go-from-here">Where to go from here</h1>
 <p>The <a href="../cookbook/">Cookbook</a> features most (if not all) intended use cases of rpclib - it's a great
-place to continue. </p>
-<p>If you are interested in the internal design of <code>rpclib</code>, take a look at the <a href="../design/">Design</a>
+place to continue.</p>
+<p>If you are interested in the internal design of <code>rpclib</code>, take a look at the <a href="../internals/">Internals</a>
 page.</p></div>
         
     </div>
