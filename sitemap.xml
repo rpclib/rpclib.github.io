@@ -3,8 +3,8 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-08-22</lastmod>
+     <loc>/</loc>
+     <lastmod>2017-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,71 +12,71 @@
     
         
     <url>
-     <loc>None/gettingstarted/</loc>
-     <lastmod>2016-08-22</lastmod>
+     <loc>/gettingstarted/</loc>
+     <lastmod>2017-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/primer/</loc>
-     <lastmod>2016-08-22</lastmod>
+     <loc>/primer/</loc>
+     <lastmod>2017-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/cookbook/</loc>
-     <lastmod>2016-08-22</lastmod>
+     <loc>/cookbook/</loc>
+     <lastmod>2017-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/glossary/</loc>
-     <lastmod>2016-08-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/compiling/</loc>
-     <lastmod>2016-08-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/internals/</loc>
-     <lastmod>2016-08-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/spec/</loc>
-     <lastmod>2016-08-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/roadmap/</loc>
-     <lastmod>2016-08-22</lastmod>
+     <loc>/glossary/</loc>
+     <lastmod>2017-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     
 
     
+        
     <url>
-     <loc>None/contributing/</loc>
-     <lastmod>2016-08-22</lastmod>
+     <loc>/compiling/</loc>
+     <lastmod>2017-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/internals/</loc>
+     <lastmod>2017-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/spec/</loc>
+     <lastmod>2017-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/roadmap/</loc>
+     <lastmod>2017-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/contributing/</loc>
+     <lastmod>2017-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/reference/</loc>
-     <lastmod>2016-08-22</lastmod>
+     <loc>/reference/</loc>
+     <lastmod>2017-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
