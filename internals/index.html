@@ -1,233 +1,523 @@
+
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="shortcut icon" href="../img/favicon.ico?v=2">
-
-    <title>Internals - rpclib</title>
-
-    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
-    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="../css/base.css" rel="stylesheet">
-    <link href="../css/cinder.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles/solarized-light.css">
-
-
-    <link href="../extra.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-    <script>
-    WebFont.load({
-        google: {
-            families: ['Open Sans', 'PT Sans']
-        }
-    });
-    </script>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-82888941-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-</head>
-
-<body>
-
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
+<html class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="shortcut icon" href="../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.5.4">
+    
+    
+      
+        <title>Internals - rpclib</title>
+      
+    
+    
+      <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application-b1a1975878.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href=".." title="rpclib" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
             
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+              
+                <span class="md-header-nav__parent">
+                  Advanced
+                </span>
+              
             
-
-            <!-- Main title -->
-            <a class="navbar-brand" href="..">rpclib</a>
+            Internals
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <div class="md-search__overlay"></div>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
         </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="..">Home</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../gettingstarted/">Getting started</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../primer/">Primer</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cookbook/">Cookbook</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../glossary/">Glossary</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../compiling/">Compiling</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Internals</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../spec/">Specification</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../roadmap/">Roadmap</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../contributing/">Contributing</a>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../reference/">Reference</a>
-                    </li>
-                
-                
-                </ul>
-            
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="http://github.com/rpclib/rpclib">
-                        <i class="fa fa-github"></i> Github
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                
-                    <li >
-                        <a rel="next" href="../compiling/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../spec/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
-                
-            </ul>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    rpclib
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
 
-    <div class="container">
-        
-        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
     
-        <li class="first-level active"><a href="#internals">Internals</a></li>
-        
-            <li class="second-level"><a href="#dependencies-of-rpclib">Dependencies of rpclib</a></li>
-            
-        
-            <li class="second-level"><a href="#the-internals-of-the-server">The internals of the server</a></li>
-            
-                <li class="third-level"><a href="#the-dispatcher">The dispatcher</a></li>
-            
-                <li class="third-level"><a href="#the-server-loop">The server loop</a></li>
-            
-                <li class="third-level"><a href="#this_handler-this_session-this_server">this_handler, this_session, this_server</a></li>
-            
-        
-            <li class="second-level"><a href="#the-internals-of-the-client">The internals of the client</a></li>
-            
-        
-            <li class="second-level"><a href="#how-and-why-the-pimpl-pattern-is-used">How and why the pimpl pattern is used</a></li>
-            
-        
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
     
-        <li class="first-level "><a href="#where-to-go-from-here">Where to go from here</a></li>
-        
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
+    <label class="md-nav__link" for="nav-2">
+      Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gettingstarted/" title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../primer/" title="Primer" class="md-nav__link">
+      Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cookbook/" title="Cookbook" class="md-nav__link">
+      Cookbook
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../glossary/" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Advanced
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Advanced
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../compiling/" title="Compiling" class="md-nav__link">
+      Compiling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Internals
+      </label>
+    
+    <a href="./" title="Internals" class="md-nav__link md-nav__link--active">
+      Internals
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies-of-rpclib" title="Dependencies of rpclib" class="md-nav__link">
+    Dependencies of rpclib
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-internals-of-the-server" title="The internals of the server" class="md-nav__link">
+    The internals of the server
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dispatcher" title="The dispatcher" class="md-nav__link">
+    The dispatcher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-server-loop" title="The server loop" class="md-nav__link">
+    The server loop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#this_handler-this_session-this_server" title="this_handler, this_session, this_server" class="md-nav__link">
+    this_handler, this_session, this_server
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-internals-of-the-client" title="The internals of the client" class="md-nav__link">
+    The internals of the client
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-and-why-the-pimpl-pattern-is-used" title="How and why the pimpl pattern is used" class="md-nav__link">
+    How and why the pimpl pattern is used
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-go-from-here" title="Where to go from here" class="md-nav__link">
+    Where to go from here
+  </a>
+  
+</li>
+      
+      
+      
     </ul>
-</div></div>
-        <div class="col-md-9" role="main">
+  
+</nav>
+    
+  </li>
 
-<h1 id="internals">Internals</h1>
-<p>This chapter describes the internal design of <code>rpclib</code> and provides some insight into the
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spec/" title="Specification" class="md-nav__link">
+      Specification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../roadmap/" title="Roadmap" class="md-nav__link">
+      Roadmap
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../reference/" title="Reference" class="md-nav__link">
+      Reference
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../versions/" title="Versions" class="md-nav__link">
+      Versions
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies-of-rpclib" title="Dependencies of rpclib" class="md-nav__link">
+    Dependencies of rpclib
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-internals-of-the-server" title="The internals of the server" class="md-nav__link">
+    The internals of the server
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dispatcher" title="The dispatcher" class="md-nav__link">
+    The dispatcher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-server-loop" title="The server loop" class="md-nav__link">
+    The server loop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#this_handler-this_session-this_server" title="this_handler, this_session, this_server" class="md-nav__link">
+    this_handler, this_session, this_server
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-internals-of-the-client" title="The internals of the client" class="md-nav__link">
+    The internals of the client
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-and-why-the-pimpl-pattern-is-used" title="How and why the pimpl pattern is used" class="md-nav__link">
+    How and why the pimpl pattern is used
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-go-from-here" title="Where to go from here" class="md-nav__link">
+    Where to go from here
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Internals</h1>
+                
+                <p>This chapter describes the internal design of <code>rpclib</code> and provides some insight into the
 engineering tradeoffs considered.</p>
-<h2 id="dependencies-of-rpclib">Dependencies of <code>rpclib</code></h2>
+<h3 id="dependencies-of-rpclib">Dependencies of <code>rpclib</code></h3>
 <p><code>rpclib</code> is self-contained, but it does use third party code. These are the following libraries:</p>
 <ul>
 <li><strong>asio</strong> (used for networking and async capabilities)</li>
@@ -252,24 +542,24 @@ library from the dependencies subfolder of the repository, and define <code>RPCL
 the namespace name provided. You might also need to change some of the preprocessor definitions
 in the CMakeLists.txt if you want to use the boost-flavored asio, not the standalone one.</p>
 </div>
-<h2 id="the-internals-of-the-server">The internals of the server</h2>
-<h3 id="the-dispatcher">The dispatcher</h3>
+<h3 id="the-internals-of-the-server">The internals of the server</h3>
+<h4 id="the-dispatcher">The dispatcher</h4>
 <p><code>rpclib</code> maintains a registry of exposed functions in a <code>dispatcher</code>. The dispatcher is a class with tfunction templates and this is the part which pulls in most of the template metaprogramming in the library. The primary purpose of the metaprogramming is to generate wrappers that can manage calling an arbitrary functor from a msgpack-encoded message; then encode the result of the function (if any) in msgpack.</p>
 <p>The generated wrappers have a uniform signature (<code>dispatcher::adaptor_type</code>) which allows storing
 them in a map. The dispatching is performed by looking up the right functor by name.</p>
-<h3 id="the-server-loop">The server loop</h3>
+<h4 id="the-server-loop">The server loop</h4>
 <p>The call to <code>server::run</code> starts an <code>asio</code>-loop. Everything that the server does is performed in
 this loop. This includes not only executing the handlers, but also parsing the input and writing
 the output. <code>async_run</code> will spawn multiple worker threads that all <code>run</code> the loop. Thanks to the
 great design of <code>asio</code>, this makes them act like a thread pool, i.e. waiting in line to take the
 next available work item. This scales pretty well for networked applications.</p>
-<h3 id="this_handler-this_session-this_server"><code>this_handler</code>, <code>this_session</code>, <code>this_server</code></h3>
+<h4 id="this_handler-this_session-this_server"><code>this_handler</code>, <code>this_session</code>, <code>this_server</code></h4>
 <p>The server provides the above objects as a means of interacting with the library. Their
 implementation relies on the realization that one thread executes at most one handler at any time;
 so <code>thread_local</code> objects are accessible both by the handler and the server loop. The server may
 set properties of these objects that the handler can query; and likewise, the handler can also set
 properties that the server can query.</p>
-<h2 id="the-internals-of-the-client">The internals of the client</h2>
+<h3 id="the-internals-of-the-client">The internals of the client</h3>
 <p>The client is fundamentally asynchronous in nature, even though this might not be readily apparent
 on the surface. The reasone for this is that responses from the server are not required to arrive
 right away, and responses to multiple requests may come in any order.</p>
@@ -279,7 +569,7 @@ the client reads a response, it will look up the promise and set the value.</p>
 <p>On the public interface, <code>async_call</code> returns a future that is bound to this promise. User code can
 wait for the result using this future.</p>
 <p><code>call</code> is simply implemented as a call to <code>async_call</code> and waiting for the result right away.</p>
-<h2 id="how-and-why-the-pimpl-pattern-is-used">How and why the pimpl pattern is used</h2>
+<h3 id="how-and-why-the-pimpl-pattern-is-used">How and why the pimpl pattern is used</h3>
 <p><code>rpclib</code> uses a variant of the <a href="http://www.gotw.ca/gotw/028.htm">fast pimpl idiom</a>. The reason for
 this is that one of the goals of the library is to provide a dependable rpc solution for projects
 and make an effort to be easily upgrade-able when new versions come out. This is also one of the
@@ -287,57 +577,88 @@ reasons why the library is not header-only.</p>
 <p>Instead of a <code>unique_ptr</code> for the pimpl pointer, the library uses a pointer-like class which stores
 its data in a <code>std::aligned_storage</code>. This increases the data locality during the calls and reduces
 dynamic allocation. The tradeoff is that the size of the storage is fixed, so adding extra data in an update is only possible with some bounds (the sizes used are a bit bigger than needed, so there is some room to do this without breaking binary compatibility).</p>
-<h1 id="where-to-go-from-here">Where to go from here</h1>
+<h2 id="where-to-go-from-here">Where to go from here</h2>
 <p>As a user, there isn't much else to learn about this library. However, if you are interested, you may
-want to check out the <a href="../contributing/">contribution guidelines</a>, the <a href="https://waffle.io/rpclib/rpclib">issue tracker</a>, and <a href="../roadmap/">roadmap</a> and start hacking on <code>rpclib</code>!</p></div>
-        
-    </div>
-
-    <footer class="col-md-12 text-center">
-        <hr>
-        <p>
-        <small>Copyright &copy; 2016 Tamás Szelei<br></small>
-        
-        <small>Site built with <a href="http://www.mkdocs.org/">MkDocs</a> and <a href="http://www.stack.nl/~dimitri/doxygen/index.html">Doxygen</a>.</p></small>
-    </footer>
-
-    <script src="../js/jquery-1.10.2.min.js"></script>
-    <script src="../js/bootstrap-3.0.3.min.js"></script>
-    <script src="../js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script>
-    var base_url = '..';
-    </script>
-    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
-    <script src="../js/base.js"></script>
-
-    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        From here you can search these documents. Enter your search terms below.
-                    </p>
-                    <form role="form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                        </div>
-                    </form>
-                    <div id="mkdocs-search-results"></div>
-                </div>
-                <div class="modal-footer">
-                </div>
-            </div>
+want to check out the <a href="../contributing/">contribution guidelines</a>, the <a href="https://waffle.io/rpclib/rpclib">issue tracker</a>, and <a href="../roadmap/">roadmap</a> and start hacking on <code>rpclib</code>!</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
         </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../compiling/" title="Compiling" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Compiling
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../spec/" title="Specification" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Specification
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
-
-    </body>
-
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 Tamás Szelei
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application-0b7df094bf.js"></script>
+      <script>app.initialize({url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
 </html>

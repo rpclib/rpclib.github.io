@@ -1,302 +1,743 @@
+
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="shortcut icon" href="../img/favicon.ico?v=2">
-
-    <title>Primer - rpclib</title>
-
-    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
-    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="../css/base.css" rel="stylesheet">
-    <link href="../css/cinder.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles/solarized-light.css">
-
-
-    <link href="../extra.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-    <script>
-    WebFont.load({
-        google: {
-            families: ['Open Sans', 'PT Sans']
-        }
-    });
-    </script>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-82888941-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-</head>
-
-<body>
-
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
+<html class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="shortcut icon" href="../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.5.4">
+    
+    
+      
+        <title>Primer - rpclib</title>
+      
+    
+    
+      <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application-b1a1975878.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href=".." title="rpclib" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
             
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+              
+                <span class="md-header-nav__parent">
+                  Guides
+                </span>
+              
             
-
-            <!-- Main title -->
-            <a class="navbar-brand" href="..">rpclib</a>
+            Primer
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <div class="md-search__overlay"></div>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
         </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="..">Home</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../gettingstarted/">Getting started</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Primer</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cookbook/">Cookbook</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../glossary/">Glossary</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../compiling/">Compiling</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../internals/">Internals</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../spec/">Specification</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../roadmap/">Roadmap</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../contributing/">Contributing</a>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../reference/">Reference</a>
-                    </li>
-                
-                
-                </ul>
-            
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="http://github.com/rpclib/rpclib">
-                        <i class="fa fa-github"></i> Github
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                
-                    <li >
-                        <a rel="next" href="../gettingstarted/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../cookbook/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
-                
-            </ul>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    rpclib
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
 
-    <div class="container">
-        
-        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
     
-        <li class="first-level active"><a href="#primer">Primer</a></li>
-        
-            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
-            
-        
-            <li class="second-level"><a href="#introduction">Introduction</a></li>
-            
-        
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-        <li class="first-level "><a href="#writing-servers">Writing servers</a></li>
-        
-            <li class="second-level"><a href="#calculator-the-hello-world-of-rpc-libraries">Calculator, the "Hello World" of RPC libraries.</a></li>
-            
-        
-            <li class="second-level"><a href="#responding-with-errors">Responding with errors</a></li>
-            
-                <li class="third-level"><a href="#what-about-my-exceptions">What about my exceptions?</a></li>
-            
-        
-            <li class="second-level"><a href="#a-more-complicated-server-parallel-mandelbrot-generation">A more complicated server - Parallel mandelbrot-generation</a></li>
-            
-                <li class="third-level"><a href="#using-custom-types-as-parameters">Using custom types as parameters</a></li>
-            
-        
-            <li class="second-level"><a href="#running-the-server-asynchrously-and-utilizing-workers">Running the server asynchrously and utilizing workers</a></li>
-            
-        
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
-        <li class="first-level "><a href="#writing-clients">Writing clients</a></li>
+    <label class="md-nav__link" for="nav-2">
+      Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
         
-            <li class="second-level"><a href="#the-calculator-client">The Calculator client</a></li>
-            
         
-            <li class="second-level"><a href="#error-handling">Error handling</a></li>
-            
-                <li class="third-level"><a href="#the-anatomy-of-a-call">The anatomy of a call</a></li>
-            
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gettingstarted/" title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
         
-            <li class="second-level"><a href="#the-mandelbrot-client">The Mandelbrot client</a></li>
-            
-                <li class="third-level"><a href="#async-servers-vs-async-clients-vs-parallel-execution">Async servers vs. async clients vs. parallel execution</a></li>
-            
-        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
     
-        <li class="first-level "><a href="#where-to-go-from-here">Where to go from here</a></li>
-        
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Primer
+      </label>
+    
+    <a href="./" title="Primer" class="md-nav__link md-nav__link--active">
+      Primer
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-servers" title="Writing servers" class="md-nav__link">
+    Writing servers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calculator-the-hello-world-of-rpc-libraries" title="Calculator, the "Hello World" of RPC libraries." class="md-nav__link">
+    Calculator, the "Hello World" of RPC libraries.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responding-with-errors" title="Responding with errors" class="md-nav__link">
+    Responding with errors
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-about-my-exceptions" title="What about my exceptions?" class="md-nav__link">
+    What about my exceptions?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-more-complicated-server-parallel-mandelbrot-generation" title="A more complicated server - Parallel mandelbrot-generation" class="md-nav__link">
+    A more complicated server - Parallel mandelbrot-generation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-custom-types-as-parameters" title="Using custom types as parameters" class="md-nav__link">
+    Using custom types as parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-server-asynchrously-and-utilizing-workers" title="Running the server asynchrously and utilizing workers" class="md-nav__link">
+    Running the server asynchrously and utilizing workers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-clients" title="Writing clients" class="md-nav__link">
+    Writing clients
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-calculator-client" title="The Calculator client" class="md-nav__link">
+    The Calculator client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" title="Error handling" class="md-nav__link">
+    Error handling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-anatomy-of-a-call" title="The anatomy of a call" class="md-nav__link">
+    The anatomy of a call
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-mandelbrot-client" title="The Mandelbrot client" class="md-nav__link">
+    The Mandelbrot client
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-servers-vs-async-clients-vs-parallel-execution" title="Async servers vs. async clients vs. parallel execution" class="md-nav__link">
+    Async servers vs. async clients vs. parallel execution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-go-from-here" title="Where to go from here" class="md-nav__link">
+    Where to go from here
+  </a>
+  
+</li>
+      
+      
+      
     </ul>
-</div></div>
-        <div class="col-md-9" role="main">
+  
+</nav>
+    
+  </li>
 
-<h1 id="primer">Primer</h1>
-<p>Welcome to the Primer! This document is a tutorial introduction to <code>rpclib</code> for absolute beginners. If you are new to the library and prefer detailed instructions and explanation, you are in the right place. If short examples with less explanation work better for you, you might want to check out the <a href="../cookbook/">Cookbook</a>!</p>
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cookbook/" title="Cookbook" class="md-nav__link">
+      Cookbook
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../glossary/" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Advanced
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Advanced
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../compiling/" title="Compiling" class="md-nav__link">
+      Compiling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../internals/" title="Internals" class="md-nav__link">
+      Internals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spec/" title="Specification" class="md-nav__link">
+      Specification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../roadmap/" title="Roadmap" class="md-nav__link">
+      Roadmap
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../reference/" title="Reference" class="md-nav__link">
+      Reference
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../versions/" title="Versions" class="md-nav__link">
+      Versions
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-servers" title="Writing servers" class="md-nav__link">
+    Writing servers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calculator-the-hello-world-of-rpc-libraries" title="Calculator, the "Hello World" of RPC libraries." class="md-nav__link">
+    Calculator, the "Hello World" of RPC libraries.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responding-with-errors" title="Responding with errors" class="md-nav__link">
+    Responding with errors
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-about-my-exceptions" title="What about my exceptions?" class="md-nav__link">
+    What about my exceptions?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-more-complicated-server-parallel-mandelbrot-generation" title="A more complicated server - Parallel mandelbrot-generation" class="md-nav__link">
+    A more complicated server - Parallel mandelbrot-generation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-custom-types-as-parameters" title="Using custom types as parameters" class="md-nav__link">
+    Using custom types as parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-server-asynchrously-and-utilizing-workers" title="Running the server asynchrously and utilizing workers" class="md-nav__link">
+    Running the server asynchrously and utilizing workers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-clients" title="Writing clients" class="md-nav__link">
+    Writing clients
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-calculator-client" title="The Calculator client" class="md-nav__link">
+    The Calculator client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" title="Error handling" class="md-nav__link">
+    Error handling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-anatomy-of-a-call" title="The anatomy of a call" class="md-nav__link">
+    The anatomy of a call
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-mandelbrot-client" title="The Mandelbrot client" class="md-nav__link">
+    The Mandelbrot client
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-servers-vs-async-clients-vs-parallel-execution" title="Async servers vs. async clients vs. parallel execution" class="md-nav__link">
+    Async servers vs. async clients vs. parallel execution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-go-from-here" title="Where to go from here" class="md-nav__link">
+    Where to go from here
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Primer</h1>
+                
+                <p>Welcome to the Primer! This document is a tutorial introduction to <code>rpclib</code> for absolute beginners. If you are new to the library and prefer detailed instructions and explanation, you are in the right place. If short examples with less explanation work better for you, you might want to check out the <a href="../cookbook/">Cookbook</a>!</p>
 <p>The tutorial is sturctured as follows: in the first part, writing servers is explained with one simple and one more advanced example.  In the second part, the corresponding clients are implemented.</p>
-<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="prerequisites">Prerequisites</h3>
 <p>Knowledge-wise, this tutorial assumes that you have an intermediate grasp of C++ and that you have an idea of what <a href="https://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a> (Remote Procedure Call) is.</p>
 <p>For your build environment, make sure that you are able to compile and link a program with
 <code>rpclib</code>. The <a href="../gettingstarted/">Getting Started</a> page can help you with that.</p>
-<h2 id="introduction">Introduction</h2>
+<h3 id="introduction">Introduction</h3>
 <p><code>rpclib</code> is a RPC library that provides both a <em>client</em> and a <em>server</em> implementation. The <em>server</em> allows you to expose functions of your program to be called remotely, while the <em>client</em> allows you to call functions of servers. You can use the <code>rpclib</code> client and server in tandem (even in the same program, if you want to), but it's not a requirement.</p>
 <p>As other RPC libraries, <code>rpclib</code> is a good candidate for inter-process communication. Also, there exist many implementations of the protocol in a large amount of languages, which makes it a possible inter-language communication bridge.</p>
 <p>msgpack-RPC is the protocol that <code>rpclib</code> uses for dispatching and encoding calls to functions. The protocol is based on <a href="http://msgpack.org">msgpack</a>, a fast and compact format. For details on how exactly it is structured, see the <a href="../spec/">Specification</a> chapter.</p>
-<h1 id="writing-servers">Writing servers</h1>
+<h2 id="writing-servers">Writing servers</h2>
 <p>In the first part of this tutorial, we will learn about writing server applications. Two example
 applications will be implemented step-by-step.</p>
-<h2 id="calculator-the-hello-world-of-rpc-libraries">Calculator, the "Hello World" of RPC libraries.</h2>
+<h3 id="calculator-the-hello-world-of-rpc-libraries">Calculator, the "Hello World" of RPC libraries.</h3>
 <p>Our first server application will expose four functions: <code>add</code>, <code>subtract</code>, <code>multiply</code>, <code>divide</code>. For the sake of this example, the functions are implemented as various callable entities.</p>
-<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;rpc/server.h&quot;</span><span class="cp"></span>
 
-double divide(double a, double b) { return a / b; }
+<span class="kt">double</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
 
-struct subtractor {
-    double operator()(double a, double b) { return a - b; }
-};
+<span class="k">struct</span> <span class="n">subtractor</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
 
-struct multiplier {
-    double multiply(double a, double b) { return a * b; }
-};
+<span class="k">struct</span> <span class="n">multiplier</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">multiply</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
 
-int main() {
-    subtractor s;
-    multiplier m;
-    auto add = [](double a, double b) { return a + b; };
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">subtractor</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">multiplier</span> <span class="n">m</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">add</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>
 
-    // ...
+    <span class="c1">// ...</span>
 
-    return 0;
-}
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 
-</code></pre>
 
 <p>Now, let's create the server:</p>
-<pre><code class="cpp">rpc::server srv(8080);
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">rpc</span><span class="o">::</span><span class="n">server</span> <span class="n">srv</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+</pre></div>
+
 
 <p>This server will listen on port 8080 (but not right away after construction - we need to <code>run</code> it). Next, we <em>bind</em> the functors to names in order to expose them:</p>
-<pre><code class="cpp">srv.bind(&quot;add&quot;, [](double a, double b) { return a + b; });
-srv.bind(&quot;sub&quot;, s);
-srv.bind(&quot;div&quot;, &amp;divide);
-srv.bind(&quot;mul&quot;, [&amp;m](double a, double b) { return m.multiply(a, b); });
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">srv</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;add&quot;</span><span class="p">,</span> <span class="p">[](</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">});</span>
+<span class="n">srv</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;sub&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+<span class="n">srv</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;div&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">divide</span><span class="p">);</span>
+<span class="n">srv</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;mul&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">m</span><span class="p">](</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">m</span><span class="p">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="p">});</span>
+</pre></div>
+
 
 <p>These are the names that the client can use to call our functions. There is nothing stopping you from binding <code>divide</code> to the name <code>"add"</code>, but it's a good practice to use names that reflect the source names. It is also possible to bind the same function to multiple names.</p>
 <div class="admonition info">
@@ -304,77 +745,82 @@ srv.bind(&quot;mul&quot;, [&amp;m](double a, double b) { return m.multiply(a, b)
 <p>Under the hood, each <code>bind</code> statement generates a compile-time a wrapper function that takes a <code>msgpack</code> object, then decodes it into the real parameters of the bound function (if any) and calls the bound function. If the function has a return value the wrapper is generated so that it encodes the result as a <code>msgpack</code> object which the server can send to the client in a response. More information on this mechanism can be found in the <a href="../internals/">Internals</a> chapter.</p>
 </div>
 <p>After we exposed the function, we need to <code>run</code> the server:</p>
-<pre><code class="cpp">srv.run();
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">srv</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
+</pre></div>
+
 
 <p><code>run</code> is a blocking function, but it also has a non-blocking pair called <code>async_run</code>. When <code>run</code> is called, the server starts listening on the port we assigned to it in its constructor, and its internal event loop will start processing the incoming requests.</p>
 <p>This is now a functioning (although, in some ways, incomplete) server. The complete listing so far:</p>
-<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;rpc/server.h&quot;</span><span class="cp"></span>
 
-double divide(double a, double b) { return a / b; }
+<span class="kt">double</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
 
-struct subtractor {
-    double operator()(double a, double b) { return a - b; }
-};
+<span class="k">struct</span> <span class="n">subtractor</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
 
-struct multiplier {
-    double multiply(double a, double b) { return a * b; }
-};
+<span class="k">struct</span> <span class="n">multiplier</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">multiply</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
 
-int main() {
-    rpc::server srv(8080);
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">rpc</span><span class="o">::</span><span class="n">server</span> <span class="n">srv</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
 
-    subtractor s;
-    multiplier m;
+    <span class="n">subtractor</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">multiplier</span> <span class="n">m</span><span class="p">;</span>
 
-    srv.bind(&quot;add&quot;, [](double a, double b) { return a + b; });
-    srv.bind(&quot;sub&quot;, s);
-    srv.bind(&quot;div&quot;, &amp;divide);
-    srv.bind(&quot;mul&quot;, [&amp;m](double a, double b) { return m.multiply(a, b); });
+    <span class="n">srv</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;add&quot;</span><span class="p">,</span> <span class="p">[](</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">});</span>
+    <span class="n">srv</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;sub&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+    <span class="n">srv</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;div&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">divide</span><span class="p">);</span>
+    <span class="n">srv</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;mul&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">m</span><span class="p">](</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">m</span><span class="p">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="p">});</span>
 
-    srv.run();
+    <span class="n">srv</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
 
-    return 0;
-}
-</code></pre>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>If you want, you can fire up a <a href="https://github.com/msgpack-rpc/msgpack-rpc-python">quick python script</a> to test it (don't worry, we'll write a client with <code>rpclib</code>, too).</p>
-<h2 id="responding-with-errors">Responding with errors</h2>
+<h3 id="responding-with-errors">Responding with errors</h3>
 <p>There is, however, an issue with this server. Did you spot it? Any client can easily make it crash just by calling <code>div</code> with a 0 divider (causing division by zero). What can we do about this? Well of course, we can just check the divider and <em>not</em> perform the division. We still need to return <em>something</em> though:</p>
-<pre><code class="cpp">#include &quot;rpc/server.h&quot;
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;rpc/server.h&quot;</span><span class="cp"></span>
 
-double divide(double a, double b) {
-    if (b == 0) {
-        return 0.0; // &lt;- ugh, that's not very good :S
-    }
-    return a / b;
-}
-</code></pre>
+<span class="kt">double</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span> <span class="c1">// &lt;- ugh, that&#39;s not very good :S</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>This is enough to avoid the crash, but it's fundamentally broken: division by zero does not yield zero, after all. The client gets an arbitrary result (oblivious to the fact that there was an error), which is most likely not what they want.</p>
 <p>Luckily, the msgpack-rpc protocol supports error signaling. We need to modify our <code>divide</code> function a little bit to utilize this functionality:</p>
-<pre><code class="cpp">#include &quot;rpc/server.h&quot;
-#include &quot;rpc/this_handler.h&quot;
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;rpc/server.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;rpc/this_handler.h&quot;</span><span class="cp"></span>
 
-double divide(double a, double b) {
-    if (b == 0) {
-        rpc::this_handler().respond_error(&quot;Division by zero&quot;);
-    }
-    return a / b;
-}
-</code></pre>
+<span class="kt">double</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">rpc</span><span class="o">::</span><span class="n">this_handler</span><span class="p">().</span><span class="n">respond_error</span><span class="p">(</span><span class="s">&quot;Division by zero&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>This is better. The error is <a href="http://c2.com/cgi/wiki?StringlyTyped">stringly-typed</a>, but it's
 better than an arbitrary result. To amend this, we can return practically any object, such as
 a tuple that contains an error code besides the message:</p>
-<pre><code class="cpp">double divide(double a, double b) {
-    if (b == 0.0) {
-        rpc::this_handler().respond_error(
-                std::make_tuple(1, &quot;Division by zero&quot;));
-    }
-    return a / b;
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kt">double</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">rpc</span><span class="o">::</span><span class="n">this_handler</span><span class="p">().</span><span class="n">respond_error</span><span class="p">(</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">make_tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Division by zero&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -384,76 +830,81 @@ it part of your server interface and document accordingly.</p>
 </div>
 <p>You might be puzzled about why we are not returning after setting the error. The reason for this is that <code>respond_error</code> throws an internal exception that is handled inside the library. (<em>This can be considered an implementation detail, but it's good to know what happens here (and it's unlikely to change</em>).</p>
 <p>Now, with the added error handling, our server is bullet-proof. Or is it?</p>
-<h3 id="what-about-my-exceptions">What about <em>my</em> exceptions?</h3>
+<h4 id="what-about-my-exceptions">What about <em>my</em> exceptions?</h4>
 <p>Our little calculator server is pretty stable at this point, but real-world applications often have to deal with exceptions. In general, exceptions should be handled at the library users' discretion (that is, caught on the handler level). So by default, <code>rpclib</code> doesn't do anything with them. If an exception leaves the handler, it is an unhandled exception and your server will crash. Yet, there are cases when you can't or don't want to handle exceptions in the handler. To facilitate this, <code>rpclib</code> provides a way to automatically turn exceptions into RPC errors:</p>
-<pre><code class="cpp">srv.suppress_exceptions(true);
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">srv</span><span class="p">.</span><span class="n">suppress_exceptions</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
 
 <p>With this, you can call functions that throw or throw exceptions:</p>
-<pre><code class="cpp">double divide(double a, double b) {
-    if (b == 0) {
-        rpc::this_handler().respond_error(
-                std::make_tuple(1, &quot;Division by zero&quot;));
-    }
-    else if (b == 1) {
-        throw std::runtime_error(&quot;Come on!&quot;);
-    }
-    throw std::logic_error(&quot;What am I doing here?&quot;);
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kt">double</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">rpc</span><span class="o">::</span><span class="n">this_handler</span><span class="p">().</span><span class="n">respond_error</span><span class="p">(</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">make_tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Division by zero&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Come on!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">logic_error</span><span class="p">(</span><span class="s">&quot;What am I doing here?&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>So yes, this means that if you set <code>suppress_excpetions</code> to <code>true</code>, you might as well signal errors from handlers by throwing exceptions. Be advised that <code>respond_error</code> is still valid and remains the preferred way to do so (especially that it's the only way to respond with structured error objects).</p>
 <p>What exactly happens to the suppressed exception? <code>rpclib</code> will try to catch <code>std::exceptions</code> and use their <code>what()</code> members to get a string representation which it sets as an error.</p>
 <p>What if you throw something that is not a <code>std::exception</code>-descendant? First of all, shame on you. Second, <code>rpclib</code> will send an error message letting your clients know that you threw something that is not a <code>std::exception</code> (<em>shaming you in front of your clients</em>). Don't do this, really.</p>
-<h2 id="a-more-complicated-server-parallel-mandelbrot-generation">A more complicated server - Parallel mandelbrot-generation</h2>
+<h3 id="a-more-complicated-server-parallel-mandelbrot-generation">A more complicated server - Parallel mandelbrot-generation</h3>
 <p>The following example demonstrates parallel processing and binding custom data types. The server itself will have two functions: one for getting the current date and time, and one for getting a rendering of the mandelbrot set. The two functions can be called asynchronously by a client.</p>
-<h3 id="using-custom-types-as-parameters">Using custom types as parameters</h3>
+<h4 id="using-custom-types-as-parameters">Using custom types as parameters</h4>
 <p>Anything that msgpack can process can be used as a parameter or return value for a bound function. In order to teach msgpack about your custom types, you need to use the <code>MSGPACK_DEFINE_ARRAY</code> or <code>MSGPACK_DEFINE_MAP</code> macros.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The difference between the two macros is that the array only contains the data values after each other, while the map also contains the names of the values. The latter gives more flexibility, the former is more compact.</p>
 </div>
 <p>In our mandelbrot example, we will want to send pixel data to the clients, so let's define a struct:</p>
-<pre><code class="cpp">struct pixel {
-    unsigned char r, g, b;
-    MSGPACK_DEFINE_ARRAY(r, g, b)
-};
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">pixel</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">MSGPACK_DEFINE_ARRAY</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">};</span>
 
-using pixel_data = std::vector&lt;pixel&gt;;
-</code></pre>
+<span class="k">using</span> <span class="n">pixel_data</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pixel</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+
 
 <p>We will share this definition between the client and server, so for our purposes it's best to put it in a common header.</p>
 <p>Like in the first example, we create the server and bind the functions we expose. This time we are using lambdas as the bound functions.</p>
-<pre><code class="cpp">rpc::server srv(8080);
+<div class="codehilite"><pre><span></span><span class="n">rpc</span><span class="o">::</span><span class="n">server</span> <span class="n">srv</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
 
-srv.bind(&quot;get_time&quot;, []() {
-    time_t rawtime;
-    struct tm *timeinfo;
-    time (&amp;rawtime);
-    timeinfo = localtime(&amp;rawtime);
-    return asctime(timeinfo);
-});
+<span class="n">srv</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;get_time&quot;</span><span class="p">,</span> <span class="p">[]()</span> <span class="p">{</span>
+    <span class="kt">time_t</span> <span class="n">rawtime</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">tm</span> <span class="o">*</span><span class="n">timeinfo</span><span class="p">;</span>
+    <span class="n">time</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">rawtime</span><span class="p">);</span>
+    <span class="n">timeinfo</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rawtime</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nf">asctime</span><span class="p">(</span><span class="n">timeinfo</span><span class="p">);</span>
+<span class="p">});</span>
 
-srv.bind(&quot;get_mandelbrot&quot;, [&amp;](int width, int height) {
-    pixel_data data;
-    for (int x = 0; x &lt; width; x++) {
-        for (int y = 0; y &lt; height; y++) {
-            // ...
-        }
-    }
+<span class="n">srv</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;get_mandelbrot&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">pixel_data</span> <span class="n">data</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    return data;
-});
-</code></pre>
+    <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>The exact contents of these functions is not a concern for our purposes, just note that the <code>get_time</code> returns a value very quickly, while <code>get_mandelbrot</code> computes a large array of numbers for several seconds.</p>
-<h2 id="running-the-server-asynchrously-and-utilizing-workers">Running the server asynchrously and utilizing workers</h2>
+<h3 id="running-the-server-asynchrously-and-utilizing-workers">Running the server asynchrously and utilizing workers</h3>
 <p>In the first example, we called the blocking <code>run</code> function of the server to start it. Here, we are going to use <code>async_run</code>. There are two important differences.</p>
 <p>. <code>run</code> blocks, <code>async_run</code> returns after starting the server.
 . <code>async_run</code> supports spawning worker threads for executing the bound functions.</p>
 <p>In this example, we call it like this:</p>
-<pre><code class="cpp">srv.async_run(2);
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">srv</span><span class="p">.</span><span class="n">async_run</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+
 
 <p>This will spawn two worker threads in the server (so now there are three in the program, because the main thread already exists). The threads will wait until there is work to do.</p>
 <div class="admonition info">
@@ -461,88 +912,93 @@ srv.bind(&quot;get_mandelbrot&quot;, [&amp;](int width, int height) {
 <p>"Work" is not only executing handlers. Processing network I/O is also part of the work that threads can take. You don't need an extra thread per connection though, because processing the I/O is typically not very processor-intensive.</p>
 </div>
 <p>Now this server can take a call to <code>get_mandelbrot</code>, start executing it and in the meantime it can finish multiple <code>get_time</code> calls. The handlers are only executed by these worker threads, the main thread is free to continue.</p>
-<h1 id="writing-clients">Writing clients</h1>
+<h2 id="writing-clients">Writing clients</h2>
 <p>Creating msgpack-rpc clients with <code>rpclib</code> happens very similarly to servers. Mirroring the server examples above, we will implement their corresponding clients.</p>
-<h2 id="the-calculator-client">The Calculator client</h2>
+<h3 id="the-calculator-client">The Calculator client</h3>
 <p>The <code>client</code> object is instantiated like this:</p>
-<pre><code class="cpp">rpc::client client(&quot;127.0.0.1&quot;, 8080);
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">rpc</span><span class="o">::</span><span class="n">client</span> <span class="n">client</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">);</span>
+</pre></div>
+
 
 <p>The important difference, compared to a server, is that we also need to specify the host to connect to.</p>
 <p>Another difference is that the client tries to connect to the server right away during construction (but the construction of the client is not a blocking call). The client object can be used right away:</p>
-<pre><code class="cpp">double five = c.call(&quot;add&quot;, 2, 3).as&lt;double&gt;();
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kt">double</span> <span class="n">five</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;add&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="n">as</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+
 
 <p>Let's try and call all of the exposed functions. With a little bit of logging to the standard
 output, the complete listing looks like this so far:</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-#include &quot;rpc/client.h&quot;
+<span class="cp">#include</span> <span class="cpf">&quot;rpc/client.h&quot;</span><span class="cp"></span>
 
-int main() {
-    rpc::client c(&quot;localhost&quot;, 8080);
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">rpc</span><span class="o">::</span><span class="n">client</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">);</span>
 
-    std::cout &lt;&lt; &quot;add(2, 3) = &quot;;
-    double five = c.call(&quot;add&quot;, 2, 3).as&lt;double&gt;();
-    std::cout &lt;&lt; five &lt;&lt; std::endl;
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;add(2, 3) = &quot;</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">five</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;add&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="n">as</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">five</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-    std::cout &lt;&lt; &quot;sub(3, 2) = &quot;;
-    double one = c.call(&quot;sub&quot;, 3, 2).as&lt;double&gt;();
-    std::cout &lt;&lt; one &lt;&lt; std::endl;
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;sub(3, 2) = &quot;</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">one</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;sub&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">).</span><span class="n">as</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">one</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-    std::cout &lt;&lt; &quot;mul(5, 0) = &quot;;
-    double zero = c.call(&quot;mul&quot;, five, 0).as&lt;double&gt;();
-    std::cout &lt;&lt; zero &lt;&lt; std::endl;
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;mul(5, 0) = &quot;</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">zero</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;mul&quot;</span><span class="p">,</span> <span class="n">five</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">as</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">zero</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-    std::cout &lt;&lt; &quot;div(3, 0) = &quot;;
-    double hmm = c.call(&quot;div&quot;, 3, 0).as&lt;double&gt;();
-    std::cout &lt;&lt; hmm &lt;&lt; std::endl;
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;div(3, 0) = &quot;</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">hmm</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;div&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">as</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">hmm</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-    return 0;
-}
-</code></pre>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 
-<h2 id="error-handling">Error handling</h2>
+
+<h3 id="error-handling">Error handling</h3>
 <p>Any request that a client makes might potentially receive an error response. In the calculator server, we decided to respond with a <code>tuple</code> containing an error code and a message. <code>rpclib</code> allows you to handle these error objects by catching <code>rpc::rpc_error</code> exceptions. To handle the errors the server throws, we would wrap the calls like this:</p>
-<pre><code class="cpp">try {
-    std::cout &lt;&lt; &quot;add(2, 3) = &quot;;
-    double five = c.call(&quot;add&quot;, 2, 3).as&lt;double&gt;();
-    std::cout &lt;&lt; five &lt;&lt; std::endl;
+<div class="codehilite"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;add(2, 3) = &quot;</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">five</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;add&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="n">as</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">five</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-    std::cout &lt;&lt; &quot;sub(3, 2) = &quot;;
-    double one = c.call(&quot;sub&quot;, 3, 2).as&lt;double&gt;();
-    std::cout &lt;&lt; one &lt;&lt; std::endl;
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;sub(3, 2) = &quot;</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">one</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;sub&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">).</span><span class="n">as</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">one</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-    std::cout &lt;&lt; &quot;mul(5, 0) = &quot;;
-    double zero = c.call(&quot;mul&quot;, five, 0).as&lt;double&gt;();
-    std::cout &lt;&lt; zero &lt;&lt; std::endl;
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;mul(5, 0) = &quot;</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">zero</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;mul&quot;</span><span class="p">,</span> <span class="n">five</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">as</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">zero</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-    std::cout &lt;&lt; &quot;div(3, 0) = &quot;;
-    double hmm = c.call(&quot;div&quot;, 3, 0).as&lt;double&gt;();
-    std::cout &lt;&lt; hmm &lt;&lt; std::endl;
-} catch (rpc::rpc_error &amp;e) {
-    std::cout &lt;&lt; std::endl &lt;&lt; e.what() &lt;&lt; std::endl;
-    std::cout &lt;&lt; &quot;in function &quot; &lt;&lt; e.get_function_name() &lt;&lt; &quot;: &quot;;
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;div(3, 0) = &quot;</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">hmm</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;div&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">as</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">hmm</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">rpc</span><span class="o">::</span><span class="n">rpc_error</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;in function &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">get_function_name</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;: &quot;</span><span class="p">;</span>
 
-    using err_t = std::tuple&lt;int, std::string&gt;;
-    auto err = e.get_error().as&lt;err_t&gt;();
-    std::cout &lt;&lt; &quot;[error &quot; &lt;&lt; std::get&lt;0&gt;(err) &lt;&lt; &quot;]: &quot; &lt;&lt; std::get&lt;1&gt;(err)
-              &lt;&lt; std::endl;
-    return 1;
-}
-</code></pre>
+    <span class="k">using</span> <span class="n">err_t</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">err</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">get_error</span><span class="p">().</span><span class="n">as</span><span class="o">&lt;</span><span class="n">err_t</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;[error &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;]: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>As you would expect, the output looks like this:</p>
-<pre><code>add(2, 3) = 5
+<div class="codehilite"><pre><span></span>add(2, 3) = 5
 sub(3, 2) = 1
 mul(5, 0) = 0
 div(3, 0) =
 rpclib: a handler responded with an error
-in function 'div': [error 1]: Division by zero
-</code></pre>
+in function &#39;div&#39;: [error 1]: Division by zero
+</pre></div>
+
 
 <p>That's pretty much all we need for the calculator client.</p>
-<h3 id="the-anatomy-of-a-call">The anatomy of a <code>call</code></h3>
+<h4 id="the-anatomy-of-a-call">The anatomy of a <code>call</code></h4>
 <p><code>call</code> does a couple of things:</p>
 <ul>
 <li>If the client is not yet connected to the server, it waits until it connects (this might block until the connection is established)</li>
@@ -555,86 +1011,118 @@ in function 'div': [error 1]: Division by zero
 <p class="admonition-title">Tip</p>
 <p>See <a href="https://github.com/msgpack/msgpack-c/wiki/v1_1_cpp_adaptor">msgpack adaptors</a> from the msgpack documentation for more information on serializing and deserializing custom types.</p>
 </div>
-<h2 id="the-mandelbrot-client">The Mandelbrot client</h2>
+<h3 id="the-mandelbrot-client">The Mandelbrot client</h3>
 <p>The client for the mandelbrot server above is interesting because we will take advantage of the multiple workers in the server. In order to do that, instead of <code>call</code> we are going to use <code>async_call</code>.</p>
 <p><code>async_call</code> is very similar to <code>call</code>, but it does not wait for the response. Instead, it will return a <a href="http://en.cppreference.com/w/cpp/thread/future">future</a>, allowing us to continue our program flow and retrieve the result later (which the server can compute in the meantime).</p>
-<pre><code class="cpp">rpc::client c(&quot;127.0.0.1&quot;, 8080);
+<div class="codehilite"><pre><span></span><span class="n">rpc</span><span class="o">::</span><span class="n">client</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">);</span>
 
-// this returns immediately:
-auto result_obj = c.async_call(&quot;get_mandelbrot&quot;, width, height);
+<span class="c1">// this returns immediately:</span>
+<span class="k">auto</span> <span class="n">result_obj</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">async_call</span><span class="p">(</span><span class="s">&quot;get_mandelbrot&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
 
-// we can now call another function and wait for its result:
-auto current_time = c.call(&quot;get_time&quot;).as&lt;std::string&gt;();
+<span class="c1">// we can now call another function and wait for its result:</span>
+<span class="k">auto</span> <span class="n">current_time</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;get_time&quot;</span><span class="p">).</span><span class="n">as</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">();</span>
 
-// ... after some time, retrieve the result (optionally wait for it)
-auto result = result_obj.get().as&lt;pixel_data&gt;();
-</code></pre>
+<span class="c1">// ... after some time, retrieve the result (optionally wait for it)</span>
+<span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">result_obj</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">as</span><span class="o">&lt;</span><span class="n">pixel_data</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+
 
 <p>The call to <code>get_time</code> can be performed with <code>call</code> (no need for <code>async_call</code>), because the other call is running on a different worker.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p><strong>What would happen if our server only had one worker thread?</strong> We would get the same output, but with more delay: The server would only start processing the <code>get_time</code> call after it finished executing and writing the response of <code>get_mandelbrot</code>. Essentially, a single-threaded server works in a "queue" fashion. The same thing would happen if the server was simple under heavy load.</p>
 </div>
-<h3 id="async-servers-vs-async-clients-vs-parallel-execution">Async servers vs. async clients vs. parallel execution</h3>
+<h4 id="async-servers-vs-async-clients-vs-parallel-execution">Async servers vs. async clients vs. parallel execution</h4>
 <p>Does the asynchonous nature of <code>async_call</code> depend on the server or the load of the server then? No, it does not. It's important to realize that <code>async_call</code> is still asynchronous even if the server does not execute requests in parallel. If there are multiple clients connected to the server, their requests are processed in a more queued manner (still two requests processed at the same time).</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><code>rpclib</code> uses a simple convention: <code>foo</code> is a synchronous call, <code>async_foo</code> is asynchronous. This conventions was adapted from Asio. The latter only means that the call returns "immediately" (or rather, very quickly and without finishing all of the work).</p>
 </div>
 <p>The two worker threads in the mandelbrot server can serve two clients in parallel. Or two calls of the same client, which happens in the example. In order to be able to send two requests in an interleaved fashion, we first use <code>async_call</code> which allows the control flow of the client to continue.</p>
-<h1 id="where-to-go-from-here">Where to go from here</h1>
+<h2 id="where-to-go-from-here">Where to go from here</h2>
 <p>The <a href="../cookbook/">Cookbook</a> features most (if not all) intended use cases of rpclib - it's a great
 place to continue.</p>
 <p>If you are interested in the internal design of <code>rpclib</code>, take a look at the <a href="../internals/">Internals</a>
-page.</p></div>
-        
-    </div>
-
-    <footer class="col-md-12 text-center">
-        <hr>
-        <p>
-        <small>Copyright &copy; 2016 Tamás Szelei<br></small>
-        
-        <small>Site built with <a href="http://www.mkdocs.org/">MkDocs</a> and <a href="http://www.stack.nl/~dimitri/doxygen/index.html">Doxygen</a>.</p></small>
-    </footer>
-
-    <script src="../js/jquery-1.10.2.min.js"></script>
-    <script src="../js/bootstrap-3.0.3.min.js"></script>
-    <script src="../js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script>
-    var base_url = '..';
-    </script>
-    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
-    <script src="../js/base.js"></script>
-
-    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        From here you can search these documents. Enter your search terms below.
-                    </p>
-                    <form role="form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                        </div>
-                    </form>
-                    <div id="mkdocs-search-results"></div>
-                </div>
-                <div class="modal-footer">
-                </div>
-            </div>
+page.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
         </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../gettingstarted/" title="Getting started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Getting started
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../cookbook/" title="Cookbook" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Cookbook
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
-
-    </body>
-
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 Tamás Szelei
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application-0b7df094bf.js"></script>
+      <script>app.initialize({url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
 </html>
