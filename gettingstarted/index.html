@@ -561,13 +561,17 @@
 <h3 id="what-you-need">What you need</h3>
 <h4 id="compiler">Compiler</h4>
 <p><code>rpclib</code> is compatible with C++11, but it's also able to take advantage of C++14 if the compiler
-supports it. At the moment, the oldest versions of the major compilers are the following:</p>
+supports it. At the moment, the oldest versions of the major compilers that are known to work
+are the following:</p>
 <ul>
-<li>g++ 4.9</li>
+<li>g++ 4.8</li>
 <li>clang++ 3.7</li>
 <li>MSVC 2015 Update 3</li>
 </ul>
 <p>Newer versions of these compilers are expected to work, of course.</p>
+<p>Since C++11 support was introduced, it might be possible to compile rpclib with even older compilers.
+If it builds and the unit tests run without an error then it should be fine to use (please report older compilers
+that do compile but produce failing unit tests to the issue tracker!)</p>
 <h4 id="tools">Tools</h4>
 <p>In addition to a capable compiler, you will need:</p>
 <ul>
