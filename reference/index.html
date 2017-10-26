@@ -1,17 +1,33 @@
 
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       
         <link rel="shortcut icon" href="../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.5.4">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
     
     
       
@@ -19,10 +35,10 @@
       
     
     
-      <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
+      <script src="../assets/javascripts/modernizr-e826f8942a.js"></script>
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application-b1a1975878.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application-04ea671600.css">
       
     
     
@@ -62,10 +78,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <a href=".." title="rpclib" class="md-icon md-icon--home md-header-nav__button">
-          </a>
-        
+        <a href=".." title="rpclib" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
@@ -84,18 +101,18 @@
         
           <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
           
-<div class="md-search" data-md-component="search">
-  <div class="md-search__overlay"></div>
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+          <div class="md-search-result__meta">
             Type to start searching
           </div>
           <ol class="md-search-result__list"></ol>
@@ -106,9 +123,9 @@
 </div>
         
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
             
 
 
@@ -128,14 +145,15 @@
     </div>
   </a>
 
-          
+          </div>
         </div>
-      </div>
+      
     </div>
   </nav>
 </header>
     
     <div class="md-container">
+      
       
       
       <main class="md-main">
@@ -147,9 +165,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    
-      <i class="md-icon md-icon--home md-nav__button"></i>
-    
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
     rpclib
   </label>
   
@@ -374,8 +394,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nonstdoptional_litebad_optional_access" title="nonstd::optional_lite::bad_optional_access" class="md-nav__link">
-    nonstd::optional_lite::bad_optional_access
+  <a href="#rpcclient" title="rpc::client" class="md-nav__link">
+    rpc::client
   </a>
   
     <nav class="md-nav">
@@ -390,33 +410,6 @@
         
           <li class="md-nav__item">
   <a href="#public-functions" title="Public functions" class="md-nav__link">
-    Public functions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rpcclient" title="rpc::client" class="md-nav__link">
-    rpc::client
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description_1" title="Description" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#public-functions_1" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -532,33 +525,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nonstdoptional_liteoptional" title="nonstd::optional_lite::optional" class="md-nav__link">
-    nonstd::optional_lite::optional
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description_2" title="Description" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#public-functions_2" title="Public functions" class="md-nav__link">
-    Public functions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#rpcrpc_error" title="rpc::rpc_error" class="md-nav__link">
     rpc::rpc_error
   </a>
@@ -567,14 +533,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_3" title="Description" class="md-nav__link">
+  <a href="#description_1" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_3" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_1" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -594,14 +560,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_4" title="Description" class="md-nav__link">
+  <a href="#description_2" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_4" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_2" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -711,14 +677,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_5" title="Description" class="md-nav__link">
+  <a href="#description_3" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_5" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_3" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -772,14 +738,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_6" title="Description" class="md-nav__link">
+  <a href="#description_4" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_6" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_4" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -799,14 +765,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_7" title="Description" class="md-nav__link">
+  <a href="#description_5" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_7" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_5" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -826,14 +792,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_8" title="Description" class="md-nav__link">
+  <a href="#description_6" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_8" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_6" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -884,8 +850,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nonstdoptional_litebad_optional_access" title="nonstd::optional_lite::bad_optional_access" class="md-nav__link">
-    nonstd::optional_lite::bad_optional_access
+  <a href="#rpcclient" title="rpc::client" class="md-nav__link">
+    rpc::client
   </a>
   
     <nav class="md-nav">
@@ -900,33 +866,6 @@
         
           <li class="md-nav__item">
   <a href="#public-functions" title="Public functions" class="md-nav__link">
-    Public functions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rpcclient" title="rpc::client" class="md-nav__link">
-    rpc::client
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description_1" title="Description" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#public-functions_1" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -1042,33 +981,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nonstdoptional_liteoptional" title="nonstd::optional_lite::optional" class="md-nav__link">
-    nonstd::optional_lite::optional
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description_2" title="Description" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#public-functions_2" title="Public functions" class="md-nav__link">
-    Public functions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#rpcrpc_error" title="rpc::rpc_error" class="md-nav__link">
     rpc::rpc_error
   </a>
@@ -1077,14 +989,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_3" title="Description" class="md-nav__link">
+  <a href="#description_1" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_3" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_1" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -1104,14 +1016,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_4" title="Description" class="md-nav__link">
+  <a href="#description_2" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_4" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_2" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -1221,14 +1133,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_5" title="Description" class="md-nav__link">
+  <a href="#description_3" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_5" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_3" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -1282,14 +1194,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_6" title="Description" class="md-nav__link">
+  <a href="#description_4" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_6" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_4" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -1309,14 +1221,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_7" title="Description" class="md-nav__link">
+  <a href="#description_5" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_7" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_5" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -1336,14 +1248,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description_8" title="Description" class="md-nav__link">
+  <a href="#description_6" title="Description" class="md-nav__link">
     Description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-functions_8" title="Public functions" class="md-nav__link">
+  <a href="#public-functions_6" title="Public functions" class="md-nav__link">
     Public functions
   </a>
   
@@ -1384,53 +1296,15 @@
 
 <p>This document is a detailed and (hopefully) complete reference of the public interface of <code>rpclib</code>.
 For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you can find many examples in the <a href="../cookbook/">Cookbook</a>.</p>
-<h3 id="nonstdoptional_litebad_optional_access">nonstd::optional_lite::bad_optional_access</h3>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;rpc/nonstd/optional.hpp&quot;</span><span class="cp"></span>
-</pre></div>
-
-
-<h4 id="description">Description</h4>
-<p>optional access error </p>
-<h4 id="public-functions">Public functions</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td><a href="#classnonstd_1_1optional__lite_1_1bad__optional__access_1a61a99f2b4bf22153a6a4ab04cf6f01d6">bad_optional_access</a>()</td>
-</tr>
-<tr>
-<td></td>
-<td><a href="#classnonstd_1_1optional__lite_1_1bad__optional__access_1aa3b8f36cdd9c8ab58ea6b5944ebf45ce">~bad_optional_access</a>()</td>
-</tr>
-</tbody>
-</table>
-<h4 id="classnonstd_1_1optional__lite_1_1bad__optional__access_1a61a99f2b4bf22153a6a4ab04cf6f01d6" class="doxy">nonstd::optional_lite::bad_optional_access::bad_optional_access</h4>
-
-<div class="codehilite"><pre><span></span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">bad_optional_access</span><span class="o">::</span><span class="n">bad_optional_access</span><span class="p">();</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1bad__optional__access_1aa3b8f36cdd9c8ab58ea6b5944ebf45ce" class="doxy">nonstd::optional_lite::bad_optional_access::~bad_optional_access</h4>
-
-<div class="codehilite"><pre><span></span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">bad_optional_access</span><span class="o">::~</span><span class="n">bad_optional_access</span><span class="p">();</span>
-</pre></div>
-
-
 <h3 id="rpcclient">rpc::client</h3>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;rpc/client.h&quot;</span><span class="cp"></span>
 </pre></div>
 
 
-<h4 id="description_1">Description</h4>
+<h4 id="description">Description</h4>
 <p>Implements a client that connects to a msgpack-rpc server and is able to call functions synchronously or asynchronously. This is the main interfacing point for implementing client applications. </p>
 <p>Use this class to connect to msgpack-rpc servers and call their exposed functions. This class supports calling functions synchronously and asynchronously. When the client object is created, it initiates connecting to the given server asynchronically and disconnects when it is destroyed. </p>
-<h4 id="public-functions_1">Public functions</h4>
+<h4 id="public-functions">Public functions</h4>
 <table>
 <thead>
 <tr>
@@ -1460,12 +1334,16 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 <td><a href="#classrpc_1_1client_1a5f5ad1d1d0630178a51ae219cd831b44">send</a>(std::string const &amp;func_name, Args... args)</td>
 </tr>
 <tr>
-<td>nonstd::optional</td>
+<td>nonstd::optional&lt; int64_t &gt;</td>
 <td><a href="#classrpc_1_1client_1a2c264af4d7169574452b9f968ffde87d">get_timeout</a>() const</td>
 </tr>
 <tr>
 <td>void</td>
 <td><a href="#classrpc_1_1client_1af890e3067745861642e2ba1a65bebce6">set_timeout</a>(int64_t value)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="#classrpc_1_1client_1a89eeffaf87bf0470a65c9c8ca40562bb">clear_timeout</a>()</td>
 </tr>
 <tr>
 <td>connection_state</td>
@@ -1548,7 +1426,7 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 </div>
 <h4 id="classrpc_1_1client_1a2c264af4d7169574452b9f968ffde87d" class="doxy">rpc::client::get_timeout</h4>
 
-<div class="codehilite"><pre><span></span><span class="n">nonstd</span><span class="o">::</span><span class="n">optional</span> <span class="n">rpc</span><span class="o">::</span><span class="n">client</span><span class="o">::</span><span class="n">get_timeout</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="n">nonstd</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span> <span class="kt">int64_t</span> <span class="o">&gt;</span> <span class="n">rpc</span><span class="o">::</span><span class="n">client</span><span class="o">::</span><span class="n">get_timeout</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 </pre></div>
 
 
@@ -1566,6 +1444,13 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 
 
 <p>Sets the timeout for synchronous calls. For more information, see </p>
+<h4 id="classrpc_1_1client_1a89eeffaf87bf0470a65c9c8ca40562bb" class="doxy">rpc::client::clear_timeout</h4>
+
+<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="n">rpc</span><span class="o">::</span><span class="n">client</span><span class="o">::</span><span class="n">clear_timeout</span><span class="p">();</span>
+</pre></div>
+
+
+<p>Clears the timeout for synchronous calls. For more information, see </p>
 <h4 id="classrpc_1_1client_1a710037bce0d9b80127a98eb6cd54caf1" class="doxy">rpc::client::get_connection_state</h4>
 
 <div class="codehilite"><pre><span></span><span class="n">connection_state</span> <span class="n">rpc</span><span class="o">::</span><span class="n">client</span><span class="o">::</span><span class="n">get_connection_state</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
@@ -1580,214 +1465,15 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 
 
 <p>Waits for the completion of all ongoing calls. </p>
-<h3 id="nonstdoptional_liteoptional">nonstd::optional_lite::optional</h3>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;rpc/nonstd/optional.hpp&quot;</span><span class="cp"></span>
-</pre></div>
-
-
-<h4 id="description_2">Description</h4>
-<p>class optional </p>
-<p>optional </p>
-<h4 id="public-functions_2">Public functions</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>optional_constexpr</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1ab4b9bcd1052a174bc0db48f882e56316">optional</a>() optional_noexcept</td>
-</tr>
-<tr>
-<td>optional_constexpr</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a12154ea396c33ebb669643908f9d885d">optional</a>(nullopt_t) optional_noexcept</td>
-</tr>
-<tr>
-<td></td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a7dbe863ea2ff5fbfa09600e1426fa5aa">optional</a>(optional const &amp;rhs)</td>
-</tr>
-<tr>
-<td>optional_constexpr</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a0f5436a217ad558b97662fbc74940798">optional</a>(value_type const &amp;value)</td>
-</tr>
-<tr>
-<td></td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a85649b228f6422000d4ddbf67e4d79be">~optional</a>()</td>
-</tr>
-<tr>
-<td>optional</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1aaae582654cafebb10595fa917c12c832">operator=</a>(nullopt_t) optional_noexcept</td>
-</tr>
-<tr>
-<td>optional</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1abde130f34c0b33647b4e91b90ee6d246">operator=</a>(optional const &amp;rhs)</td>
-</tr>
-<tr>
-<td>void</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a34e6a8aa06cbd4337e5c0ae3e5a01dc8">swap</a>(optional &amp;rhs)</td>
-</tr>
-<tr>
-<td>optional_constexpr value_type const  *</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a43588addb6382e034bd6fcbf72c0fcfe">operator-&gt;</a>() const</td>
-</tr>
-<tr>
-<td>optional_constexpr14 value_type *</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a89ec82915ce1bf8a5362389dd2d0f230">operator-&gt;</a>()</td>
-</tr>
-<tr>
-<td>optional_constexpr value_type const  &amp;</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a948cb55c43b3ce892e35875622a63d52">operator*</a>() const optional_ref_qual</td>
-</tr>
-<tr>
-<td>optional_constexpr14 value_type &amp;</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1add209f0d31a99e3daac023f1b7490610">operator*</a>() optional_ref_qual</td>
-</tr>
-<tr>
-<td>optional_constexpr</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a540ac15713bad0c4cec887505e8891c5">operator safe_bool</a>() const optional_noexcept</td>
-</tr>
-<tr>
-<td>optional_constexpr bool</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a8d36137e398950bfbd63e02d2dac7789">has_value</a>() const optional_noexcept</td>
-</tr>
-<tr>
-<td>optional_constexpr14 value_type const  &amp;</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a9829f0857a48ae6d30819e320562e8c1">value</a>() const optional_ref_qual</td>
-</tr>
-<tr>
-<td>optional_constexpr14 value_type &amp;</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a6dc356822433bc56428adeee8b276ba8">value</a>() optional_ref_qual</td>
-</tr>
-<tr>
-<td>optional_constexpr value_type</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a4dd8f8fc1549fee78bd80f1977b504dd">value_or</a>(U const &amp;v) const</td>
-</tr>
-<tr>
-<td>void</td>
-<td><a href="#classnonstd_1_1optional__lite_1_1optional_1a024284c4c1a99a5bf0813c3ec5d6b5b9">reset</a>() optional_noexcept</td>
-</tr>
-</tbody>
-</table>
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1ab4b9bcd1052a174bc0db48f882e56316" class="doxy">nonstd::optional_lite::optional::optional</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="n">optional</span><span class="p">()</span> <span class="n">optional_noexcept</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a12154ea396c33ebb669643908f9d885d" class="doxy">nonstd::optional_lite::optional::optional</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="n">optional</span><span class="p">(</span><span class="n">nullopt_t</span><span class="p">)</span> <span class="n">optional_noexcept</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a7dbe863ea2ff5fbfa09600e1426fa5aa" class="doxy">nonstd::optional_lite::optional::optional</h4>
-
-<div class="codehilite"><pre><span></span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="n">optional</span><span class="p">(</span><span class="n">optional</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a0f5436a217ad558b97662fbc74940798" class="doxy">nonstd::optional_lite::optional::optional</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="n">optional</span><span class="p">(</span><span class="n">value_type</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a85649b228f6422000d4ddbf67e4d79be" class="doxy">nonstd::optional_lite::optional::~optional</h4>
-
-<div class="codehilite"><pre><span></span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::~</span><span class="n">optional</span><span class="p">();</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1aaae582654cafebb10595fa917c12c832" class="doxy">nonstd::optional_lite::optional::operator=</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">nullopt_t</span><span class="p">)</span> <span class="n">optional_noexcept</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1abde130f34c0b33647b4e91b90ee6d246" class="doxy">nonstd::optional_lite::optional::operator=</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">optional</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a34e6a8aa06cbd4337e5c0ae3e5a01dc8" class="doxy">nonstd::optional_lite::optional::swap</h4>
-
-<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">optional</span> <span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a43588addb6382e034bd6fcbf72c0fcfe" class="doxy">nonstd::optional_lite::optional::operator-></h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr</span> <span class="n">value_type</span> <span class="k">const</span>  <span class="o">*</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="k">operator</span><span class="o">-&gt;</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a89ec82915ce1bf8a5362389dd2d0f230" class="doxy">nonstd::optional_lite::optional::operator-></h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr14</span> <span class="n">value_type</span> <span class="o">*</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="k">operator</span><span class="o">-&gt;</span><span class="p">();</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a948cb55c43b3ce892e35875622a63d52" class="doxy">nonstd::optional_lite::optional::operator*</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr</span> <span class="n">value_type</span> <span class="k">const</span>  <span class="o">&amp;</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="k">const</span> <span class="n">optional_ref_qual</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1add209f0d31a99e3daac023f1b7490610" class="doxy">nonstd::optional_lite::optional::operator*</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr14</span> <span class="n">value_type</span> <span class="o">&amp;</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="n">optional_ref_qual</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a540ac15713bad0c4cec887505e8891c5" class="doxy">nonstd::optional_lite::optional::operator safe_bool</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="k">operator</span> <span class="n">safe_bool</span><span class="p">()</span> <span class="k">const</span> <span class="n">optional_noexcept</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a8d36137e398950bfbd63e02d2dac7789" class="doxy">nonstd::optional_lite::optional::has_value</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr</span> <span class="kt">bool</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="n">has_value</span><span class="p">()</span> <span class="k">const</span> <span class="n">optional_noexcept</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a9829f0857a48ae6d30819e320562e8c1" class="doxy">nonstd::optional_lite::optional::value</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr14</span> <span class="n">value_type</span> <span class="k">const</span>  <span class="o">&amp;</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="n">value</span><span class="p">()</span> <span class="k">const</span> <span class="n">optional_ref_qual</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a6dc356822433bc56428adeee8b276ba8" class="doxy">nonstd::optional_lite::optional::value</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr14</span> <span class="n">value_type</span> <span class="o">&amp;</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="n">value</span><span class="p">()</span> <span class="n">optional_ref_qual</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a4dd8f8fc1549fee78bd80f1977b504dd" class="doxy">nonstd::optional_lite::optional::value_or</h4>
-
-<div class="codehilite"><pre><span></span><span class="n">optional_constexpr</span> <span class="n">value_type</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="n">value_or</span><span class="p">(</span><span class="n">U</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-</pre></div>
-
-
-<h4 id="classnonstd_1_1optional__lite_1_1optional_1a024284c4c1a99a5bf0813c3ec5d6b5b9" class="doxy">nonstd::optional_lite::optional::reset</h4>
-
-<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="n">nonstd</span><span class="o">::</span><span class="n">optional_lite</span><span class="o">::</span><span class="n">optional</span><span class="o">::</span><span class="n">reset</span><span class="p">()</span> <span class="n">optional_noexcept</span><span class="p">;</span>
-</pre></div>
-
-
 <h3 id="rpcrpc_error">rpc::rpc_error</h3>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;rpc/rpc_error.h&quot;</span><span class="cp"></span>
 </pre></div>
 
 
-<h4 id="description_3">Description</h4>
+<h4 id="description_1">Description</h4>
 <p>This exception is thrown by the client when the server signals an error during a call. </p>
 <p>This type allows clients to handle arbitrary error objects as the msgpack-rpc specification allows. In client code you probably don't want to throw it, hence its constructor is private. </p>
-<h4 id="public-functions_3">Public functions</h4>
+<h4 id="public-functions_1">Public functions</h4>
 <table>
 <thead>
 <tr>
@@ -1825,10 +1511,10 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 </pre></div>
 
 
-<h4 id="description_4">Description</h4>
+<h4 id="description_2">Description</h4>
 <p>Implements a msgpack-rpc server. This is the main interfacing point with the library for creating servers. </p>
 <p>The server maintains a registry of function bindings that it uses to dispatch calls. It also takes care of managing worker threads and TCP connections. The server does not start listening right after construction in order to allow binding functions before that. Use the <code>run</code> or <code>async_run</code> functions to start listening on the port. This class is not copyable, but moveable. </p>
-<h4 id="public-functions_4">Public functions</h4>
+<h4 id="public-functions_2">Public functions</h4>
 <table>
 <thead>
 <tr>
@@ -1909,6 +1595,7 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 
 <p>Constructs a server that listens on the specified address on the specified port. </p>
 <h6 id="parameters_6">Parameters</h6>
+<p><code>address</code> The address to bind to. This only works if oee of your network adapaters control the given address. </p>
 <p><code>port</code> The port number to listen on. </p>
 <h4 id="classrpc_1_1server_1a20b9197e5ef1a22371e6fbdb7f58b330" class="doxy">rpc::server::~server</h4>
 
@@ -1998,9 +1685,9 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 </pre></div>
 
 
-<h4 id="description_5">Description</h4>
+<h4 id="description_3">Description</h4>
 <p>Encapsulates information about the currently executing handler. This is the interface through which bound functions may return errors, arbitrary type responses or prohibit sending a response. </p>
-<h4 id="public-functions_5">Public functions</h4>
+<h4 id="public-functions_3">Public functions</h4>
 <table>
 <thead>
 <tr>
@@ -2087,9 +1774,9 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 </pre></div>
 
 
-<h4 id="description_6">Description</h4>
+<h4 id="description_4">Description</h4>
 <p>Allows controlling the server instance from the currently executing handler. </p>
-<h4 id="public-functions_6">Public functions</h4>
+<h4 id="public-functions_4">Public functions</h4>
 <table>
 <thead>
 <tr>
@@ -2127,9 +1814,9 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 </pre></div>
 
 
-<h4 id="description_7">Description</h4>
+<h4 id="description_5">Description</h4>
 <p>Encapsulates information about the server session/connection this handler is running in. This is the interface through which bound functions may interact with the session. </p>
-<h4 id="public-functions_7">Public functions</h4>
+<h4 id="public-functions_5">Public functions</h4>
 <table>
 <thead>
 <tr>
@@ -2141,6 +1828,10 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 <tr>
 <td>void</td>
 <td><a href="#classrpc_1_1this__session__t_1ae0551bc44674bdd43e33a4d4a36781b0">post_exit</a>()</td>
+</tr>
+<tr>
+<td>session_id_t</td>
+<td><a href="#classrpc_1_1this__session__t_1aada2250ec9dd3d88781ca16eb4352047">id</a>() const</td>
 </tr>
 </tbody>
 </table>
@@ -2155,13 +1846,25 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 <p class="admonition-title">Warn</p>
 <p>Use this function if you need to close the connection from a handler. </p>
 </div>
-<h3 id="rpctimeout">rpc::timeout</h3>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;&quot;</span><span class="cp"></span>
+<h4 id="classrpc_1_1this__session__t_1aada2250ec9dd3d88781ca16eb4352047" class="doxy">rpc::this_session_t::id</h4>
+
+<div class="codehilite"><pre><span></span><span class="n">session_id_t</span> <span class="n">rpc</span><span class="o">::</span><span class="n">this_session_t</span><span class="o">::</span><span class="n">id</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 </pre></div>
 
 
-<h4 id="description_8">Description</h4>
-<h4 id="public-functions_8">Public functions</h4>
+<p>Returns an ID that uniquely identifies a session. </p>
+<div class="admonition warn">
+<p class="admonition-title">Warn</p>
+<p>This is not an ID for the client. If the client disconnects and reconnects, this ID may change. That being said, you can use this ID to store client-specific information *for the duration of the session. </p>
+</div>
+<h3 id="rpctimeout">rpc::timeout</h3>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;rpc/rpc_error.h&quot;</span><span class="cp"></span>
+</pre></div>
+
+
+<h4 id="description_6">Description</h4>
+<p>This exception is thrown by the client when either the connection or a call takes more time than it is set in set_timeout. </p>
+<h4 id="public-functions_6">Public functions</h4>
 <table>
 <thead>
 <tr>
@@ -2180,6 +1883,9 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
 
 <div class="codehilite"><pre><span></span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">rpc</span><span class="o">::</span><span class="n">timeout</span><span class="o">::</span><span class="n">what</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="k">override</span><span class="p">;</span>
 </pre></div>
+
+
+<p>Describes the exception. </p>
                 
                   
                 
@@ -2253,8 +1959,10 @@ For a tutorial, take a look at the <a href="../primer/">Primer</a>. Also, you ca
       
     </div>
     
-      <script src="../assets/javascripts/application-0b7df094bf.js"></script>
-      <script>app.initialize({url:{base:".."}})</script>
+      <script src="../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:".."}})</script>
       
     
     
